@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &46495915 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8973726422212903118, guid: 5358fe055a6cfa740a5e5e826cc0924f, type: 3}
+  m_PrefabInstance: {fileID: 645921034}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &216942078 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8180230559524428629, guid: 48a28f4fee49e254eae75ef36ce32f14, type: 3}
@@ -570,6 +575,7 @@ GameObject:
   - component: {fileID: 1381742872}
   - component: {fileID: 1381742871}
   - component: {fileID: 1381742870}
+  - component: {fileID: 1381742873}
   m_Layer: 0
   m_Name: Farmer
   m_TagString: Untagged
@@ -589,8 +595,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5501789171e3a85449850959d16c4be3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 46495915}
   movement_points_GO: {fileID: 1265095824}
   move_speed: 2
+  chase_speed: 0.6
 --- !u!114 &1381742871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -620,6 +628,42 @@ Transform:
   - {fileID: 744808207}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &1381742873
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381742869}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 2
 --- !u!1001 &1565398214
 PrefabInstance:
   m_ObjectHideFlags: 0
