@@ -1,39 +1,16 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public abstract class MovementScript : MonoBehaviour
 {
-    public class Point
-    {
-        public GameObject point_GO;
-        public float wait_time;
-
-        public Point()
-        {
-            point_GO = null;
-            wait_time = 0;
-        }
-
-        public Point(GameObject point)
-        {
-            this.point_GO = point;
-            wait_time = 0;
-        }
-
-        public Point(GameObject point, float wait_time)
-        {
-            this.point_GO = point;
-            this.wait_time = wait_time;
-        }
-    }
-
     public Transform player;
 
     public GameObject movement_points_GO;
 
     //protected List<GameObject> list_of_movement_points;
-    protected List<Point> list_of_movement_points;
-
+    //protected List<Point> list_of_movement_points;
+    protected List<Activities> list_of_movement_points;
     public float move_speed = 1f;
     public float chase_speed = 0.6f;
     //public float wait_on_point = 0.5f;
@@ -108,7 +85,7 @@ public abstract class MovementScript : MonoBehaviour
 
         while (true)
         {
-            GameObject targetPoint = list_of_movement_points[current_point_index].point_GO;
+            GameObject targetPoint = list_of_movement_points[current_point_index].GetPoint().point_GO;
             Vector3 targetPos = targetPoint.transform.position;
 
             while (Vector3.Distance(transform.position, targetPos) > 0.01f)
@@ -124,8 +101,8 @@ public abstract class MovementScript : MonoBehaviour
 
             transform.position = targetPos;
 
-            yield return new WaitForSeconds(list_of_movement_points[current_point_index].wait_time);
-
+            yield return new WaitForSeconds(list_of_movement_points[current_point_index].GetPoint().wait_time);
+            list_of_movement_points[current_point_index].Trigger();// ??????
             current_point_index = (current_point_index + 1) % list_of_movement_points.Count;
         }
     }
@@ -138,7 +115,7 @@ public abstract class MovementScript : MonoBehaviour
 
         for (int i = 0; i < list_of_movement_points.Count; i++)
         {
-            Vector3 p = list_of_movement_points[i].point_GO.transform.position;
+            Vector3 p = list_of_movement_points[i].GetPoint().point_GO.transform.position;
             float sqrDist = (p - transform.position).sqrMagnitude;
 
             if (sqrDist < minSqrDist)
@@ -157,7 +134,7 @@ public abstract class MovementScript : MonoBehaviour
             yield break;
 
         int nearestIndex = GetNearestPointIndex();
-        GameObject targetPoint = list_of_movement_points[nearestIndex].point_GO;
+        GameObject targetPoint = list_of_movement_points[nearestIndex].GetPoint().point_GO;
         Vector3 targetPos = targetPoint.transform.position;
 
         while (Vector3.Distance(transform.position, targetPos) > 0.01f)
@@ -180,11 +157,6 @@ public abstract class MovementScript : MonoBehaviour
 
     protected void FillListOfMovementPoints()
     {
-        list_of_movement_points = new List<Point>();
-
-        foreach (Transform child in movement_points_GO.transform)
-        {
-            list_of_movement_points.Add(new Point(child.gameObject, 0.5f));
-        }
+        list_of_movement_points = movement_points_GO.GetComponentsInChildren<MonoBehaviour>().OfType<Activities>().ToList();
     }
 }
