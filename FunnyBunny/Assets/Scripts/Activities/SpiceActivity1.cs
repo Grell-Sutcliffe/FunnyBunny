@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class SpiceActivity : MonoBehaviour, Activities
+public class SpiceActivity1 : MonoBehaviour, Activities
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     
     
     Animator animator;
     Point point;
-    bool isActive = true;
+    bool isActive = false;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -26,6 +26,7 @@ public class SpiceActivity : MonoBehaviour, Activities
     {
         isActive = true;
     }
+    /*
     private void OnTriggerEnter2D(Collider2D collision) // add tag !!!!!!!
     {
         if (collision.CompareTag("Respawn"))
@@ -34,6 +35,7 @@ public class SpiceActivity : MonoBehaviour, Activities
 
         }
     }
+    */
 
     public void Trigger()
     {
