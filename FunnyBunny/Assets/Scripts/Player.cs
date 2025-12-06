@@ -19,6 +19,9 @@ public class Player : MonoBehaviour
     private float targetSpeed;
     private bool hasInput;
 
+    // height
+    public int height = 1;//add in awake
+    public int height_constant = 1;
     private bool isCrawling = false;
     private bool isAlive = true;
     private bool isRunning = true;
@@ -31,6 +34,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        //Debug.Log(height);
         if (!isAlive)
             return;
         HandleMovement();
@@ -46,7 +50,7 @@ public class Player : MonoBehaviour
         if (hasInput)
             moveInput = moveInput.normalized;
 
-        isCrawling = Input.GetKey(KeyCode.C);
+        SetCrawling(Input.GetKey(KeyCode.C));
         isRunning = Input.GetKey(KeyCode.LeftShift) && !isCrawling;
 
         if (!hasInput)
@@ -78,6 +82,16 @@ public class Player : MonoBehaviour
         }
 
         Flip();
+    }
+
+    public void SetCrawling(bool value)
+    {
+        isCrawling = value;
+
+        if (isCrawling)
+            height = height_constant - 1;
+        else
+            height = height_constant;
     }
 
     private void Flip()
