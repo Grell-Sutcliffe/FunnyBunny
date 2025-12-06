@@ -4,6 +4,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour
 {
+    [SerializeField] float max_health;
+    float current_health;
+
     [Header("Speeds")]
     public float walkSpeed = 2f;
     public float runSpeed = 5f;
@@ -129,5 +132,16 @@ public class Player : MonoBehaviour
     public void Destroy()
     {
         this.gameObject.SetActive(false);
+    }
+
+    public void ChangeHealth(float amount)
+    {
+        current_health += amount;
+
+        if (current_health > max_health) current_health = max_health;
+
+        if (current_health <= 0) current_health = 0;
+
+        if (current_health == 0) Die();
     }
 }

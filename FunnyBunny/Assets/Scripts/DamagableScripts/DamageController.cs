@@ -2,13 +2,13 @@ using UnityEngine;
 
 public abstract class DamageController : MonoBehaviour
 {
-    void Start()
+    protected virtual void Start()
     {
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
-         Destroy(gameObject);
+
     }
 }
