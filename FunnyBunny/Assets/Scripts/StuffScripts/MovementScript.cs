@@ -97,7 +97,6 @@ public abstract class MovementScript : MonoBehaviour
         }
     }
 
-
     protected System.Collections.IEnumerator MoveAlongPointsLoop()
     {
         if (list_of_movement_points.Count == 0)
@@ -129,7 +128,6 @@ public abstract class MovementScript : MonoBehaviour
             current_point_index = (current_point_index + 1) % list_of_movement_points.Count;
         }
     }
-
 
     protected int GetNearestPointIndex()
     {
