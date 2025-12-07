@@ -13,6 +13,14 @@ public class MovementPointScript : MonoBehaviour, Activities, IPointerDownHandle
     {
         return false;
     }
+    public void Click(int id)
+    {
+
+    }
+    public int GetKey()
+    {
+        return 0;
+    }
     public void MakeActive()
     {
     }

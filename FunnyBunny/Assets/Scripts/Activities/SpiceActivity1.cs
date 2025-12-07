@@ -13,7 +13,14 @@ public class SpiceActivity1 : MonoBehaviour, Activities
         animator = GetComponent<Animator>();
         point = new Point(gameObject, 0.5f);
     }
+    public void Click(int id)
+    {
 
+    }
+    public int GetKey()
+    {
+        return 0;
+    }
     public Point GetPoint()
     {
         return point;

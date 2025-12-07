@@ -9,18 +9,30 @@ public class SpiceActivity : MonoBehaviour, Activities, IPointerDownHandler
     
     Animator animator;
     Point point;
-    bool isActive = true;
+    bool isActive = false;
+    int idActivate = 22;
     void Start()
     {
         animator = GetComponent<Animator>();
         point = new Point(gameObject, 0.5f);
+    }
+    public int GetKey()
+    {
+        return idActivate;
     }
     public void OnPointerDown(PointerEventData eventData)
     {
         Debug.Log("SLOT MOUSE DOWN");
         
     }
-
+    public void Click(int id)
+    {
+        Debug.Log("ACTIVATED");
+        if (id == idActivate)
+        {
+            isActive = true;
+        }
+    }
     public Point GetPoint()
     {
         return point;

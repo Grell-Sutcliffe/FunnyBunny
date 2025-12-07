@@ -20,6 +20,8 @@ public class MainController : MonoBehaviour
     [SerializeField]
     Image defImagemda;
 
+    [SerializeField]
+    Stalker stalker;
     List<int> FillInv = new List<int>(new int[10]);
     public void AddToInv(Item item)
     {   int value = item.id;
@@ -53,6 +55,14 @@ public class MainController : MonoBehaviour
         
     }
 
+    public void ChangeStalkImg(Image i)
+    {
+        stalker.ChangeImg(i);
+    }
+    public void ReternImg()
+    {
+        stalker.ChangeImg(defImagemda);
+    }
     void Start()
     {
 

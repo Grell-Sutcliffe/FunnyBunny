@@ -7,5 +7,8 @@ public interface Activities
     Point GetPoint();
     bool IsActive();
     void MakeActive();
+
+    void Click(int id);
+    int GetKey();
    
 }
