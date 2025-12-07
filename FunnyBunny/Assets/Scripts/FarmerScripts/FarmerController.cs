@@ -13,6 +13,8 @@ public class FarmerController : MonoBehaviour
     void Start()
     {
         gunScript = gun_GO.GetComponent<GunScript>();
+
+        //StartShooting();
     }
 
     void StartShooting()

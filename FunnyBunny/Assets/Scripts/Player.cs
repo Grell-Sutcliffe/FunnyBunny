@@ -4,7 +4,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour
 {
-    [SerializeField] float max_health;
+    UIController UIcontroller;
+
+    [SerializeField] float max_health = 10;
     float current_health;
 
     [Header("Speeds")]
@@ -29,8 +31,15 @@ public class Player : MonoBehaviour
     private bool isAlive = true;
     private bool isRunning = true;
 
+    private void Start()
+    {
+        current_health = max_health;
+    }
+
     void Awake()
     {
+        UIcontroller = GameObject.Find("Canvas").GetComponent<UIController>();
+
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponentInChildren<SpriteRenderer>();
     }
@@ -141,6 +150,9 @@ public class Player : MonoBehaviour
         if (current_health > max_health) current_health = max_health;
 
         if (current_health <= 0) current_health = 0;
+
+        UIcontroller.SetHealthBarPercent(current_health / max_health);
+        Debug.Log($"current_health = {current_health}, max_health = {max_health}, damage_amount = {amount}");
 
         if (current_health == 0) Die();
     }

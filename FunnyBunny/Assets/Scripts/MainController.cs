@@ -4,6 +4,10 @@ public class MainController : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
+    Player playerScript;
+
+    // [SerializeField] GameObject healthBar;
+
     [SerializeField]
     public GameObject bebebel2;
     public Activities bebebel;
