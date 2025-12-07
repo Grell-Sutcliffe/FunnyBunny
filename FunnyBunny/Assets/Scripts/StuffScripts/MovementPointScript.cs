@@ -1,8 +1,9 @@
 using System.Reflection;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class MovementPointScript : MonoBehaviour, Activities
+public class MovementPointScript : MonoBehaviour, Activities, IPointerDownHandler
 {
     Point point;
     [SerializeField]
@@ -28,4 +29,10 @@ public class MovementPointScript : MonoBehaviour, Activities
     {
         return point;
     }
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        Debug.Log("MP");
+
+    }
+  
 }

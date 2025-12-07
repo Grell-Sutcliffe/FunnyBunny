@@ -8,7 +8,7 @@ public class UIController : MonoBehaviour
 
     void Start()
     {
-        healthBarScript = healthBar.GetComponent<HealthBarScript>();
+        //healthBarScript = healthBar.GetComponent<HealthBarScript>();
     }
 
     public void SetHealthBarPercent(float percent)

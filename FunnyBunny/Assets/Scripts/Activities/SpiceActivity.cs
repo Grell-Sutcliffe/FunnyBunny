@@ -1,6 +1,8 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class SpiceActivity : MonoBehaviour, Activities
+public class SpiceActivity : MonoBehaviour, Activities, IPointerDownHandler
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     
@@ -12,6 +14,11 @@ public class SpiceActivity : MonoBehaviour, Activities
     {
         animator = GetComponent<Animator>();
         point = new Point(gameObject, 0.5f);
+    }
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        Debug.Log("SLOT MOUSE DOWN");
+        
     }
 
     public Point GetPoint()
