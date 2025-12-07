@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class MovementScript : MonoBehaviour
 {
     public Transform player;
+    public GameObject player_GO;
 
     public GameObject movement_points_GO;
 
@@ -21,7 +22,7 @@ public abstract class MovementScript : MonoBehaviour
 
     Coroutine moveCoroutine;
 
-    protected Rigidbody2D target;
+    protected GameObject target;
 
     protected virtual void Start()
     {
@@ -37,8 +38,8 @@ public abstract class MovementScript : MonoBehaviour
     {
         if (is_chasing && player != null)
         {
-            Debug.Log("Chase");
-            target = player.GetComponent<Rigidbody2D>();
+            //Debug.Log("Chase");
+            target = player_GO;
 
             Vector3 targetPos = player.position;
 
@@ -90,7 +91,7 @@ public abstract class MovementScript : MonoBehaviour
         {
             GameObject targetPoint = list_of_movement_points[current_point_index].GetPoint().point_GO;
 
-            target = targetPoint.GetComponent<Rigidbody2D>();
+            target = targetPoint;
 
             Vector3 targetPos = targetPoint.transform.position;
 
@@ -140,6 +141,9 @@ public abstract class MovementScript : MonoBehaviour
 
         int nearestIndex = GetNearestPointIndex();
         GameObject targetPoint = list_of_movement_points[nearestIndex].GetPoint().point_GO;
+
+        target = targetPoint;
+
         Vector3 targetPos = targetPoint.transform.position;
 
         while (Vector3.Distance(transform.position, targetPos) > 0.01f)

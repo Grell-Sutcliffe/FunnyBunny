@@ -8,11 +8,11 @@ public class FarmerMovementScript : MovementScript
 {
     public GameObject root;
 
-    public float speed = 1f;
-    public float stop_distance = 0.5f;
-    public bool rotate_towards = false;
+    float speed = 1f;
+    float stop_distance = 0f;
+    bool rotate_towards = false;
 
-    public bool need_to_move = false;
+    bool need_to_move = true;
 
     private Animator animator;
 
@@ -30,7 +30,7 @@ public class FarmerMovementScript : MovementScript
 
     SpriteRenderer sprite;
 
-    void Awake() => rb = GetComponent<Rigidbody2D>();
+    void Awake() => rb = GetComponentInChildren<Rigidbody2D>();
 
     protected override void Start()
     {
@@ -47,8 +47,10 @@ public class FarmerMovementScript : MovementScript
     {
         if (!need_to_move) return;
 
-        Vector2 toTarget = (Vector2)target.position - rb.position;
+        //Vector2 toTarget = (Vector2)target.transform.position - rb.position;
+        Vector2 toTarget = (Vector2)target.transform.position - (Vector2)this.transform.position;
         float dist = toTarget.magnitude;
+        Debug.Log($"{toTarget}, target.transform.position = {(Vector2)target.transform.position} dist = {dist}");
         if (dist <= stop_distance)
         {
             animator.SetBool("is_walking", false);

@@ -134,6 +134,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8180230559524428629, guid: 48a28f4fee49e254eae75ef36ce32f14, type: 3}
   m_PrefabInstance: {fileID: 1713509558}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &475812280 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6960806309160655013, guid: 5358fe055a6cfa740a5e5e826cc0924f, type: 3}
+  m_PrefabInstance: {fileID: 645921034}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,14 +724,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 46495915}
+  player_GO: {fileID: 475812280}
   movement_points_GO: {fileID: 1265095824}
   move_speed: 0.5
   chase_speed: 0.6
   root: {fileID: 744808206}
-  speed: 1
-  stop_distance: 2
-  rotate_towards: 0
-  need_to_move: 0
 --- !u!114 &1381742871
 MonoBehaviour:
   m_ObjectHideFlags: 0
