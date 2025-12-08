@@ -3054,7 +3054,7 @@ MonoBehaviour:
   prefubsById:
   - {fileID: 0}
   - {fileID: 2302528244380274589, guid: 7403060cedd001648b6019e0275cf779, type: 3}
-  - {fileID: 0}
+  - {fileID: 2562210925091806864, guid: 8d5a18bf28349404a9c4fbcc27c13a6d, type: 3}
   defImagemda: {fileID: 880471736}
   empty: {fileID: -7496008970979957096, guid: 6a46c7c88fb912540a59261a94e9b6e6, type: 3}
   stalker: {fileID: 1966014697}
@@ -4564,11 +4564,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 818e42ae56fe0234882d004d0cb31f25, type: 3}
---- !u!1 &2012385295 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2562210925091806864, guid: 8d5a18bf28349404a9c4fbcc27c13a6d, type: 3}
-  m_PrefabInstance: {fileID: 183971659}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2031803764
 GameObject:
   m_ObjectHideFlags: 0
@@ -4868,9 +4863,13 @@ PrefabInstance:
       value: Apple
       objectReference: {fileID: 0}
     - target: {fileID: 2501729778411524741, guid: 7403060cedd001648b6019e0275cf779, type: 3}
+      propertyPath: item.id
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2501729778411524741, guid: 7403060cedd001648b6019e0275cf779, type: 3}
       propertyPath: item.prefab
       value: 
-      objectReference: {fileID: 2012385295}
+      objectReference: {fileID: 2562210925091806864, guid: 8d5a18bf28349404a9c4fbcc27c13a6d, type: 3}
     - target: {fileID: 2501729778411524741, guid: 7403060cedd001648b6019e0275cf779, type: 3}
       propertyPath: item.sprite
       value: 
