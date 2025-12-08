@@ -20,7 +20,7 @@ public class FarmerController : MonoBehaviour
 
         current_anger_level = 0f;
 
-        //StartShooting();
+        // StartShooting();
     }
 
     public void ChangeAnger(float amount)
