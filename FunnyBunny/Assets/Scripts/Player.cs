@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour
@@ -36,6 +37,11 @@ public class Player : MonoBehaviour
         current_health = max_health;
     }
 
+
+    public Vector3 GetPos()
+    {
+        return this.transform.position; 
+    }
     void Awake()
     {
         UIcontroller = GameObject.Find("Canvas").GetComponent<UIController>();
@@ -106,6 +112,10 @@ public class Player : MonoBehaviour
             height = height_constant;
     }
 
+    public void WrongAnim()
+    {
+        animator.SetTrigger("Wrong");
+    }
     private void Flip()
     {
         if (Mathf.Abs(moveInput.x) > 0.01f) // if sprite is exist?

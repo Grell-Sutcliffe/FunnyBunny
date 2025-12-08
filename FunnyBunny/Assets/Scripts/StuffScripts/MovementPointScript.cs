@@ -1,8 +1,9 @@
 using System.Reflection;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class MovementPointScript : MonoBehaviour, Activities
+public class MovementPointScript : MonoBehaviour, Activities, IPointerDownHandler
 {
     Point point;
     [SerializeField]
@@ -11,6 +12,14 @@ public class MovementPointScript : MonoBehaviour, Activities
     public bool IsActive()
     {
         return false;
+    }
+    public void Click(int id)
+    {
+
+    }
+    public int GetKey()
+    {
+        return 0;
     }
     public void MakeActive()
     {
@@ -28,4 +37,10 @@ public class MovementPointScript : MonoBehaviour, Activities
     {
         return point;
     }
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        Debug.Log("MP");
+
+    }
+  
 }
