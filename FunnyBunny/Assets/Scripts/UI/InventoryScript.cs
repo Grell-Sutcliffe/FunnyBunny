@@ -8,17 +8,25 @@ public class InventoryScript : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     MainController controller;
     [SerializeField]
     Image image;
-    Item item;
+    [SerializeField]
+    public Item item;
     void Start()
     {
         controller = MainController.Instance;
+        item.id = 0;
     }
 
+
+    public void ClearCell()
+    {
+        image.sprite = controller.empty;
+        item.id = 0;
+    }
     public void OnPointerDown(PointerEventData eventData)
     {
         Debug.Log("SLOT MOUSE DOWN");
         Debug.Log(item);
-        if (item != null) controller.ChangeStalkImg(image);
+        if (item != null) controller.ChangeStalkImg(image.sprite);
     }
 
 
@@ -40,16 +48,19 @@ public class InventoryScript : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         Vector2 point = mouseWorldPos;
 
         RaycastHit2D hit = Physics2D.Raycast(point, Vector2.zero);
-        Debug.Log(hit);
-        if (hit.collider != null)
-        {
-            current = hit.collider.GetComponent<Activities>();
-            current.Click(item.id);
+
+        Debug.Log(hit.collider);
+        current = hit.collider?.GetComponent<Activities>();
+        current?.Click(item.id);
+        //Debug.Log(current);
+        if (current == null)
+        {   
+            Instantiate(controller.RetPref(item.id), point, Quaternion.identity);
+
         }
-        else
-        {
-            current = null;
-        }
+
+        ClearCell();
+
         controller.ReternImg();
     }
 }

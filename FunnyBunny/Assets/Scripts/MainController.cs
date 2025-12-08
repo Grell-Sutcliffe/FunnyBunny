@@ -9,7 +9,7 @@ public class MainController : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField]
-    Player playerScript;
+    public Player playerScript;
     public GameObject prefPoper;
     public static MainController Instance { get; private set; }
     // [SerializeField] GameObject healthBar;
@@ -17,24 +17,31 @@ public class MainController : MonoBehaviour
     GameObject inventory;
     public List<InventoryScript> ListInventories = new List<InventoryScript>();
 
+    public List<GameObject> prefubsById;
+
     [SerializeField]
     Image defImagemda;
-
+    public Sprite empty;
     [SerializeField]
     Stalker stalker;
     List<int> FillInv = new List<int>(new int[10]);
     public void AddToInv(Item item)
     {   int value = item.id;
-        for (int i = 0; i < FillInv.Count; i++)
+        ListInventories = new List<InventoryScript>(inventory.GetComponentsInChildren<InventoryScript>());
+        Debug.Log(ListInventories.Count);
+        for (int i = 0; i < ListInventories.Count; i++)
         {
-            if (FillInv[i] == 0)
+            if (ListInventories[i].item.id == 0)
             {
-                FillInv[i] = value; // there will not be more than 10
                 ListInventories[i].SetNewItem(item);
                 Debug.Log(value); 
                 return;
             }
         }
+    }
+    public GameObject RetPref(int id)
+    {
+        return prefubsById[id];
     }
     public Vector3 GetPlayerPos()
     {
@@ -55,13 +62,13 @@ public class MainController : MonoBehaviour
         
     }
 
-    public void ChangeStalkImg(Image i)
+    public void ChangeStalkImg(Sprite i)
     {
         stalker.ChangeImg(i);
     }
     public void ReternImg()
     {
-        stalker.ChangeImg(defImagemda);
+        stalker.ChangeImg(empty);
     }
     void Start()
     {

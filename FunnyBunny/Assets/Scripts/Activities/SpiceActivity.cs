@@ -2,19 +2,18 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class SpiceActivity : MonoBehaviour, Activities, IPointerDownHandler
+public class SpiceActivity : Bebebe, Activities, IPointerDownHandler
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     
     
-    Animator animator;
-    Point point;
-    bool isActive = false;
-    int idActivate = 22;
-    void Start()
+    
+    protected override void Start()
     {
         animator = GetComponent<Animator>();
         point = new Point(gameObject, 0.5f);
+
+        base.Start();
     }
     public int GetKey()
     {
@@ -25,14 +24,7 @@ public class SpiceActivity : MonoBehaviour, Activities, IPointerDownHandler
         Debug.Log("SLOT MOUSE DOWN");
         
     }
-    public void Click(int id)
-    {
-        Debug.Log("ACTIVATED");
-        if (id == idActivate)
-        {
-            isActive = true;
-        }
-    }
+    
     public Point GetPoint()
     {
         return point;
@@ -45,23 +37,27 @@ public class SpiceActivity : MonoBehaviour, Activities, IPointerDownHandler
     {
         isActive = true;
     }
+    /*
     private void OnTriggerEnter2D(Collider2D collision) // add tag !!!!!!!
     {
+        //Debug.Log(12123);
         if (collision.CompareTag("Respawn"))
         {
             Trigger();
 
         }
     }
-
+    */
     public void Trigger()
     {
         if (!isActive)
         {
+            Debug.Log("AAAAAAAAAA");
             return;
         }
         Debug.Log("added");
         animator.SetTrigger("hit");
+        
 
     }
     // Update is called once per frame

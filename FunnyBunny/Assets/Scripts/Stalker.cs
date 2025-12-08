@@ -12,8 +12,9 @@ public class Stalker : MonoBehaviour
         transform.position = Input.mousePosition;
     }
 
-    public void ChangeImg(Image i)
+    public void ChangeImg(Sprite i)
     {
-        img = i;
+        Debug.Log(1111);
+        img.sprite = i;
     }
 }

@@ -112,6 +112,10 @@ public class Player : MonoBehaviour
             height = height_constant;
     }
 
+    public void WrongAnim()
+    {
+        animator.SetTrigger("Wrong");
+    }
     private void Flip()
     {
         if (Mathf.Abs(moveInput.x) > 0.01f) // if sprite is exist?

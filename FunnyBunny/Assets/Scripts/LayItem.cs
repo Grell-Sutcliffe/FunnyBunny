@@ -5,17 +5,18 @@ public class LayItem : MonoBehaviour, IPointerDownHandler
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField]
-    Item item;
+    protected Item item;
+    protected MainController mainController;
 
-    MainController mainController;
-    void Start()
+    public bool isTrap = false;
+    protected void Start()
     {
         //item.sprite = GetComponent<SpriteRenderer>().sprite;
         mainController = MainController.Instance;
     }
 
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {
         //Debug.Log(item.sprite);
     }

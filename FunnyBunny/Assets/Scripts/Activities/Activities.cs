@@ -9,6 +9,6 @@ public interface Activities
     void MakeActive();
 
     void Click(int id);
-    int GetKey();
+    int GetKey();  // it will not be used at all
    
 }
