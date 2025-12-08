@@ -1,29 +1,12 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class HealthBarScript : MonoBehaviour
+public class HealthBarScript : BarController
 {
-    [SerializeField]
-    GameObject healthBarFilling;
-
-    RectTransform healthBar_rectTransform;
-
-    void Start()
+    protected override void Start()
     {
-        healthBar_rectTransform = healthBarFilling.GetComponent<RectTransform>();
+        base.Start();
 
-        SetHealthFull();
-    }
-
-    void SetHealthFull()
-    {
-        SetHealthBarPercent(1);
-    }
-
-    public void SetHealthBarPercent(float percent)
-    {
-        Vector3 new_localScale = healthBar_rectTransform.localScale;
-        new_localScale.x = percent;
-        healthBar_rectTransform.localScale = new_localScale;
+        SetBarFull();
     }
 }
