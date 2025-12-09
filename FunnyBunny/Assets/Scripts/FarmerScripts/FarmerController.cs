@@ -1,3 +1,4 @@
+using UnityEditor.Search;
 using UnityEngine;
 
 public class FarmerController : MonoBehaviour
@@ -22,7 +23,7 @@ public class FarmerController : MonoBehaviour
 
         current_anger_level = 0f;
 
-        // StartShooting();
+        StopShooting();
     }
 
     public void ChangeAnger(float amount)
@@ -61,13 +62,15 @@ public class FarmerController : MonoBehaviour
         UIcontroller.SetAngerBarPercent(current_anger_percent);
     }
 
-    void StartShooting()
+    public void StartShooting()
     {
+        gun_GO.SetActive(true);
         gunScript.StartShooting();
     }
 
-    void StopShooting()
+    public void StopShooting()
     {
+        gun_GO.SetActive(false);
         gunScript.StopShooting();
     }
 }

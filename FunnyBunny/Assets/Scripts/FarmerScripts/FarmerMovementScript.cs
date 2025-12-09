@@ -16,7 +16,7 @@ public class FarmerMovementScript : MovementScript
 
     float saw_bunny_anger_amount = 0.05f;
 
-    bool was_bunny_hit = false;
+    public bool was_bunny_hit = false;
 
     private Animator animator;
 
@@ -91,6 +91,11 @@ public class FarmerMovementScript : MovementScript
         {
             was_bunny_hit = false;
             farmerController.ChangeAngerPercent(saw_bunny_anger_amount);
+
+            if (farmerController.current_anger_percent >= 0.5f)
+            {
+                farmerController.StartShooting();
+            }
         }
     }
 
@@ -111,6 +116,7 @@ public class FarmerMovementScript : MovementScript
             }
 
             was_bunny_hit = false;
+            farmerController.StopShooting();
         }
     }
 
