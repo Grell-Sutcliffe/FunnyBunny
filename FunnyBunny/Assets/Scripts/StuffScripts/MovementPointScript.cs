@@ -24,13 +24,9 @@ public class MovementPointScript : MonoBehaviour, Activities, IPointerDownHandle
     public void MakeActive()
     {
     }
-    void Start()
-    {
-        point = new Point(gameObject, timer);
-    }
     public void Trigger()
     {
-        
+
     }
 
     public Point GetPoint()
@@ -42,5 +38,10 @@ public class MovementPointScript : MonoBehaviour, Activities, IPointerDownHandle
         Debug.Log("MP");
 
     }
+    void Start()
+    {
+        point = new Point(gameObject, timer);
+    }
+    
   
 }

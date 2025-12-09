@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class UIController : MonoBehaviour
 {
+    [SerializeField]
     HealthBarScript healthBarScript;
+    [SerializeField]
     AngerBarScript angerBarScript;
 
     public GameObject healthBar;
@@ -10,8 +12,8 @@ public class UIController : MonoBehaviour
 
     void Start()
     {
-        healthBarScript = healthBar.GetComponent<HealthBarScript>();
-        angerBarScript = angerBar.GetComponent<AngerBarScript>();
+        //healthBarScript = healthBar.GetComponent<HealthBarScript>();
+        //angerBarScript = angerBar.GetComponent<AngerBarScript>();
     }
 
     public void SetHealthBarPercent(float percent)
