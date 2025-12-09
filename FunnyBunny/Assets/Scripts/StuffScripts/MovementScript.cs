@@ -1,36 +1,28 @@
-using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public abstract class MovementScript : MonoBehaviour
 {
-    public LayerMask obstacleMask;
-    public Transform eyesPosition;
-
-    public Transform playerTransform;
+    public Transform player;
     public GameObject player_GO;
 
     public GameObject movement_points_GO;
     public GameObject root;
 
-    //protected List<GameObject> list_of_movement_points;
-    //protected List<Point> list_of_movement_points;
     protected List<Activities> list_of_movement_points;
     public float move_speed = 1f;
     public float chase_speed = 0.6f;
-    //public float wait_on_point = 0.5f;
 
     protected int current_point_index;
-    public bool need_to_move = true;
+    protected bool need_to_move = true;
 
     protected bool is_chasing = false;
 
     protected float speed = 1f;
-    protected float stop_distance = 0.5f;
+    protected float stop_distance = 0.03f;
     protected bool rotate_towards = false;
 
-    protected bool can_see_player = false;
     public bool was_bunny_hit = false;
 
     protected bool is_right;
@@ -52,13 +44,11 @@ public abstract class MovementScript : MonoBehaviour
 
     protected GameObject target;
 
-    Rigidbody2D rb;
-
-    void Awake() => rb = GetComponentInChildren<Rigidbody2D>();
-
+    protected Rigidbody2D rb;
 
     protected virtual void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         animator = root.GetComponent<Animator>();
         sprite = root.GetComponent<SpriteRenderer>();
 
@@ -72,24 +62,12 @@ public abstract class MovementScript : MonoBehaviour
 
     protected void Update()
     {
-        can_see_player = CanSeeBunny();
-
-        if (need_to_move && is_chasing &&/* can_see_player &&*/ playerTransform != null)
+        if (need_to_move && is_chasing && player != null)
         {
-            //Debug.Log("Chase");
             target = player_GO;
 
-            Vector2 toTarget = (Vector2)target.transform.position - (Vector2)this.transform.position;
-            float dist = toTarget.magnitude;
-
-            if (dist <= stop_distance)
-            {
-                animator.SetBool(is_walking, false);
-                return;
-            }
-
             /*
-            Vector3 targetPos = playerTransform.position;
+            Vector3 targetPos = player.position;
 
             transform.position = Vector3.MoveTowards(
                 transform.position,
@@ -129,30 +107,7 @@ public abstract class MovementScript : MonoBehaviour
         }
         step = toTarget.normalized * speed * Time.fixedDeltaTime;
 
-        // SetDirection(step);
-
-        if (rb == null) return;
-        rb.MovePosition(rb.position + step);
-
-        //if (rotate_towards && step.sqrMagnitude > 0f) rb.rotation = Mathf.Atan2(step.y, step.x) * Mathf.Rad2Deg;
-    }
-
-    bool CanSeeBunny()
-    {
-        if (playerTransform == null) return false;
-
-        Vector2 origin = eyesPosition.position;
-        Vector2 target = playerTransform.position;
-
-        RaycastHit2D hit = Physics2D.Linecast(origin, target, obstacleMask);
-
-        //Debug.Log(hit.collider.name);
-
-        if (hit.collider != null)
-        {
-            return true;
-        }
-        return false;
+        if (rb != null) rb.MovePosition(rb.position + step);
     }
 
     protected float GetAngle(Vector2 vector)
@@ -168,14 +123,13 @@ public abstract class MovementScript : MonoBehaviour
     protected void Flip()
     {
         sprite.flipX = !sprite.flipX;
-        //sprite.flipY = !sprite.flipY;
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("PlayerVisible"))
+        if (other.CompareTag("Player"))
         {
-            //Debug.Log("OnTriggerEnter FARMER");
+            Debug.Log("OnTriggerEnter");
             is_chasing = true;
 
             if (moveCoroutine != null)
@@ -188,7 +142,7 @@ public abstract class MovementScript : MonoBehaviour
 
     protected virtual void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("PlayerVisible"))
+        if (other.CompareTag("Player"))
         {
             is_chasing = false;
 
@@ -210,30 +164,17 @@ public abstract class MovementScript : MonoBehaviour
         while (true)
         {
             GameObject targetPoint = list_of_movement_points[current_point_index].GetPoint().point_GO;
-
             target = targetPoint;
 
-            Vector3 targetPos = targetPoint.transform.position;
-            while (Vector3.Distance(transform.position, targetPos) > 0.01f)
+            while (Vector2.Distance(transform.position, targetPoint.transform.position) > stop_distance)
             {
-                /*
-                    if (need_to_move)
-                    {
-                        transform.position = Vector3.MoveTowards(
-                            transform.position,
-                            targetPos,
-                            move_speed * Time.deltaTime
-                        );
-                    }
-
-                    yield return null;
-                */
+                yield return null;
             }
 
-            transform.position = targetPos;
-
             yield return new WaitForSeconds(list_of_movement_points[current_point_index].GetPoint().wait_time);
-            list_of_movement_points[current_point_index].Trigger();// ??????
+
+            list_of_movement_points[current_point_index].Trigger();
+
             current_point_index = (current_point_index + 1) % list_of_movement_points.Count;
         }
     }
@@ -263,34 +204,27 @@ public abstract class MovementScript : MonoBehaviour
         if (list_of_movement_points.Count == 0)
             yield break;
 
-        int nearestIndex = GetNearestPointIndex();
-        GameObject targetPoint = list_of_movement_points[nearestIndex].GetPoint().point_GO;
+        if (current_point_index < 0 || current_point_index >= list_of_movement_points.Count)
+            current_point_index = 0;
 
-        target = targetPoint;
-
-        Vector3 targetPos = targetPoint.transform.position;
-
-        while (Vector3.Distance(transform.position, targetPos) > 0.01f)
+        while (true)
         {
-            /*
-                if (need_to_move)
-                {
-                    transform.position = Vector3.MoveTowards(
-                        transform.position,
-                        targetPos,
-                        move_speed * Time.deltaTime
-                    );
-                }
+            var pointData = list_of_movement_points[current_point_index].GetPoint();
+            GameObject targetPoint = pointData.point_GO;
 
-            */
-            yield return null;
+            target = targetPoint;
+
+            while (Vector2.Distance(transform.position, targetPoint.transform.position) > stop_distance)
+            {
+                yield return null;
+            }
+
+            yield return new WaitForSeconds(pointData.wait_time);
+
+            list_of_movement_points[current_point_index].Trigger();
+
+            current_point_index = (current_point_index + 1) % list_of_movement_points.Count;
         }
-
-        transform.position = targetPos;
-
-        current_point_index = nearestIndex;
-
-        moveCoroutine = StartCoroutine(MoveAlongPointsLoop());
     }
 
     protected void FillListOfMovementPoints()

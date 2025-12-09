@@ -1309,7 +1309,6 @@ GameObject:
   - component: {fileID: 744808210}
   - component: {fileID: 744808213}
   - component: {fileID: 744808214}
-  - component: {fileID: 744808208}
   - component: {fileID: 744808211}
   - component: {fileID: 744808212}
   m_Layer: 7
@@ -1335,33 +1334,6 @@ Transform:
   - {fileID: 2040990974}
   m_Father: {fileID: 1381742872}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &744808208
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 744808206}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!212 &744808210
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1523,6 +1495,7 @@ GameObject:
   - component: {fileID: 762398602}
   - component: {fileID: 762398603}
   - component: {fileID: 762398599}
+  - component: {fileID: 762398604}
   m_Layer: 7
   m_Name: Doggy
   m_TagString: Untagged
@@ -1619,6 +1592,33 @@ MonoBehaviour:
   chase_speed: 1.5
   need_to_move: 1
   was_bunny_hit: 0
+--- !u!50 &762398604
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762398598}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &767658263
 GameObject:
   m_ObjectHideFlags: 0
@@ -2407,7 +2407,6 @@ GameObject:
   - component: {fileID: 1160308932}
   - component: {fileID: 1160308931}
   - component: {fileID: 1160308933}
-  - component: {fileID: 1160308930}
   - component: {fileID: 1160308929}
   - component: {fileID: 1160308928}
   m_Layer: 7
@@ -2501,33 +2500,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!50 &1160308930
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1160308926}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &1160308931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3293,6 +3265,7 @@ GameObject:
   - component: {fileID: 1381742871}
   - component: {fileID: 1381742870}
   - component: {fileID: 1381742873}
+  - component: {fileID: 1381742874}
   m_Layer: 7
   m_Name: Farmer
   m_TagString: Untagged
@@ -3393,6 +3366,33 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 5
+--- !u!50 &1381742874
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381742869}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1445996272
 GameObject:
   m_ObjectHideFlags: 0
