@@ -194,5 +194,6 @@ public class Player : MonoBehaviour
         Debug.Log($"current_health = {current_health}, max_health = {max_health}, damage_amount = {amount}");
 
         if (current_health == 0) Die();
+        if (amount < 0) animator.SetTrigger("Hit");
     }
 }
