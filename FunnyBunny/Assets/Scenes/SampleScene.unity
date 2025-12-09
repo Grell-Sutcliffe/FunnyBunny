@@ -370,7 +370,7 @@ GameObject:
   - component: {fileID: 285754713}
   - component: {fileID: 285754712}
   - component: {fileID: 285754714}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -490,7 +490,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 299369795}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Chickens
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -827,7 +827,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -933,7 +933,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 519940354}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: WhiteChicken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1518,7 +1518,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 767658264}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Environment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1560,7 +1560,7 @@ GameObject:
   - component: {fileID: 977435756}
   - component: {fileID: 977435755}
   - component: {fileID: 977435754}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1820,7 +1820,7 @@ GameObject:
   - component: {fileID: 1056493009}
   - component: {fileID: 1056493008}
   - component: {fileID: 1056493007}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2178,7 +2178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1106076337}
   - component: {fileID: 1106076338}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MiniMapCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2239,7 +2239,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 3255
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: cad850006233da14bbc5d5b5123811f4, type: 2}
   m_TargetDisplay: 0
@@ -2887,7 +2887,7 @@ GameObject:
   - component: {fileID: 1254564905}
   - component: {fileID: 1254564904}
   - component: {fileID: 1254564903}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3758,7 +3758,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1618113344}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: DarkChicken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3901,7 +3901,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1649115812}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3995,7 +3995,7 @@ GameObject:
   - component: {fileID: 1765636044}
   - component: {fileID: 1765636043}
   - component: {fileID: 1765636042}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4190,7 +4190,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1768026037}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Petuh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4697,7 +4697,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1834425614}
   - component: {fileID: 1834425615}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GroundSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4783,7 +4783,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1857660831}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Ciplenka
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5021,7 +5021,7 @@ GameObject:
   - component: {fileID: 1938034322}
   - component: {fileID: 1938034321}
   - component: {fileID: 1938034320}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5471,7 +5471,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2094630266}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Ciplenok
   m_TagString: Untagged
   m_Icon: {fileID: 0}
