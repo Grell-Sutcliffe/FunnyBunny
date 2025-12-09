@@ -71,6 +71,7 @@ public class GunScript : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
+        Debug.Log("EXIT");
         if (other.CompareTag("Bullet"))
         {
             Debug.Log("BANG BANG DESTROY BULLET");

@@ -28,13 +28,12 @@ public class BulletScript : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-
         if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("BANG BANG COLLISION WITH PLAYER");
             collision.gameObject.GetComponent<Player>().ChangeHealth(-damage, true);
-            Destroy();
         }
+        Destroy();
     }
 
     public void Destroy()

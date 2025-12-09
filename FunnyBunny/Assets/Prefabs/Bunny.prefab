@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3057766077612273218}
   - component: {fileID: 8448024621443896080}
   - component: {fileID: 176481971783504411}
-  - component: {fileID: 1207261674822900103}
+  - component: {fileID: 8858377238211098624}
   m_Layer: 6
   m_Name: Bunny
   m_TagString: Player
@@ -126,8 +126,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!70 &1207261674822900103
-CapsuleCollider2D:
+--- !u!61 &8858377238211098624
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -160,6 +160,15 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.031187177, y: -0.28068548}
-  m_Size: {x: 1.2515056, y: 1.438629}
-  m_Direction: 0
+  m_Offset: {x: 0, y: 0.25}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 0.3}
+  m_EdgeRadius: 0

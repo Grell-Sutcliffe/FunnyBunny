@@ -86,7 +86,7 @@ public abstract class MovementScript : MonoBehaviour
         //Vector2 toTarget = (Vector2)target.transform.position - rb.position;
         Vector2 toTarget = (Vector2)target.transform.position - (Vector2)this.transform.position;
         float dist = toTarget.magnitude;
-        Debug.Log($"{toTarget}, target.transform.position = {(Vector2)target.transform.position} dist = {dist}");
+        //Debug.Log($"{toTarget}, target.transform.position = {(Vector2)target.transform.position} dist = {dist}");
         if (dist <= stop_distance)
         {
             animator.SetBool(is_walking, false);

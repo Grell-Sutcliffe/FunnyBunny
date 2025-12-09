@@ -464,7 +464,7 @@ GameObject:
   m_Component:
   - component: {fileID: 490949000}
   - component: {fileID: 490949001}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: GunImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2539,7 +2539,7 @@ GameObject:
   - component: {fileID: 1486520000}
   - component: {fileID: 1486520001}
   - component: {fileID: 1486520002}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Gun
   m_TagString: Gun
   m_Icon: {fileID: 0}
@@ -2768,7 +2768,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1582875538}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: GunPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3477,6 +3477,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef6dbea0ed2c3f1408ea0e4a0e1bcd97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBarScript: {fileID: 0}
+  angerBarScript: {fileID: 0}
   healthBar: {fileID: 0}
   angerBar: {fileID: 0}
 --- !u!114 &1834199890
@@ -3491,6 +3493,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef6dbea0ed2c3f1408ea0e4a0e1bcd97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBarScript: {fileID: 1166761047}
+  angerBarScript: {fileID: 1460768066}
   healthBar: {fileID: 1166761043}
   angerBar: {fileID: 1460768062}
 --- !u!1 &1834425613
