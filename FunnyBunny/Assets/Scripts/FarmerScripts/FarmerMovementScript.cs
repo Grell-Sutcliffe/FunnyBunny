@@ -8,24 +8,24 @@ public class FarmerMovementScript : MovementScript
 {
     FarmerController farmerController;
 
-    public GameObject root;
+    // public GameObject root;
 
-    float speed = 1f;
-    float stop_distance = 0f;
-    bool rotate_towards = false;
+    // float speed = 1f;
+    // float stop_distance = 0f;
+    // bool rotate_towards = false;
 
     float saw_bunny_anger_amount = 0.05f;
 
-    public bool was_bunny_hit = false;
+    // public bool was_bunny_hit = false;
 
-    private Animator animator;
+    // private Animator animator;
 
     Rigidbody2D rb;
 
-    string is_walking = "is_walking";
-    string is_angry = "is_angry";
-    string is_crying = "is_crying";
-    string is_heart_attack = "is_heart_attack";
+    // string is_walking = "is_walking";
+    // string is_angry = "is_angry";
+    // string is_crying = "is_crying";
+    // string is_heart_attack = "is_heart_attack";
 
     string is_F = "is_F";
     string is_RF = "is_RF";
@@ -35,9 +35,9 @@ public class FarmerMovementScript : MovementScript
 
     string current_direction;
 
-    bool is_right;
+    // bool is_right;
 
-    SpriteRenderer sprite;
+    // SpriteRenderer sprite;
 
     void Awake() => rb = GetComponentInChildren<Rigidbody2D>();
 
@@ -45,42 +45,20 @@ public class FarmerMovementScript : MovementScript
     {
         farmerController = GetComponent<FarmerController>();
 
-        animator = root.GetComponent<Animator>();
+        // animator = root.GetComponent<Animator>();
 
-        sprite = root.GetComponent<SpriteRenderer>();
+        // sprite = root.GetComponent<SpriteRenderer>();
 
         current_direction = is_F;
 
         base.Start();
     }
 
-    void FixedUpdate()
+    protected override void FixedUpdate()
     {
-        if (!need_to_move)
-        {
-            animator.SetBool(is_walking, false);
-            return;
-        }
-
-        //Vector2 toTarget = (Vector2)target.transform.position - rb.position;
-        Vector2 toTarget = (Vector2)target.transform.position - (Vector2)this.transform.position;
-        float dist = toTarget.magnitude;
-        Debug.Log($"{toTarget}, target.transform.position = {(Vector2)target.transform.position} dist = {dist}");
-        if (dist <= stop_distance)
-        {
-            animator.SetBool(is_walking, false);
-            return;
-        }
-
-        animator.SetBool(is_walking, true);
-
-        Vector2 step = toTarget.normalized * speed * Time.fixedDeltaTime;
+        base.FixedUpdate();
 
         SetDirection(step);
-
-        //rb.MovePosition(rb.position + step);
-
-        //if (rotate_towards && step.sqrMagnitude > 0f) rb.rotation = Mathf.Atan2(step.y, step.x) * Mathf.Rad2Deg;
     }
 
     protected override void OnTriggerEnter2D(Collider2D other)
@@ -174,7 +152,7 @@ public class FarmerMovementScript : MovementScript
 
     void SetDirection(Vector2 vector)
     {
-        SetDirection(GetAngle(vector));
+        this.SetDirection(GetAngle(vector));
     }
 
     void SetDirection(float angle)
@@ -238,22 +216,6 @@ public class FarmerMovementScript : MovementScript
                 SetDirection(is_F);
             }
         }
-    }
-
-    void Flip()
-    {
-        sprite.flipX = !sprite.flipX;
-        //sprite.flipY = !sprite.flipY;
-    }
-
-    float GetAngle(Vector2 vector)
-    {
-        float angleRad = Mathf.Atan2(vector.y, vector.x);
-        float angleDeg = angleRad * Mathf.Rad2Deg;
-
-        float angle = (90f - angleDeg + 360f) % 360f;
-
-        return angle;
     }
 
     void SetDirection(string direction)
