@@ -12,6 +12,8 @@ public class FarmerController : MonoBehaviour
 
     float current_anger_level;
 
+    public float current_anger_percent = 0f;
+
     void Start()
     {
         UIcontroller = GameObject.Find("Canvas").GetComponent<UIController>();
@@ -27,7 +29,36 @@ public class FarmerController : MonoBehaviour
     {
         current_anger_level += amount;
 
-        UIcontroller.SetAngerBarPercent(current_anger_level / max_anger_level);
+        if (current_anger_level > max_anger_level)
+        {
+            current_anger_level = max_anger_level;
+        }
+        if (current_anger_level < 0f)
+        {
+            current_anger_level = 0f;
+        }
+
+        current_anger_percent = current_anger_level / max_anger_level;
+
+        UIcontroller.SetAngerBarPercent(current_anger_percent);
+    }
+
+    public void ChangeAngerPercent(float amount)
+    {
+        current_anger_percent += amount;
+
+        if (current_anger_percent > 1f)
+        {
+            current_anger_percent = 1f;
+        }
+        if (current_anger_level < 0f)
+        {
+            current_anger_percent = 0f;
+        }
+
+        current_anger_level = max_anger_level / current_anger_percent;
+
+        UIcontroller.SetAngerBarPercent(current_anger_percent);
     }
 
     void StartShooting()

@@ -4,7 +4,7 @@ using UnityEngine;
 public class YSorter : MonoBehaviour
 {
     public int baseOrder = 0;
-    public int mul = 100;
+    public int mul = 10;
 
     Renderer r;
 

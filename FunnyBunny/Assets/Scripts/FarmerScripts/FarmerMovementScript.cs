@@ -6,17 +6,26 @@ using static UnityEngine.GraphicsBuffer;
 
 public class FarmerMovementScript : MovementScript
 {
+    FarmerController farmerController;
+
     public GameObject root;
 
     float speed = 1f;
     float stop_distance = 0f;
     bool rotate_towards = false;
 
-    bool need_to_move = true;
+    float saw_bunny_anger_amount = 0.05f;
+
+    bool was_bunny_hit = false;
 
     private Animator animator;
 
     Rigidbody2D rb;
+
+    string is_walking = "is_walking";
+    string is_angry = "is_angry";
+    string is_crying = "is_crying";
+    string is_heart_attack = "is_heart_attack";
 
     string is_F = "is_F";
     string is_RF = "is_RF";
@@ -34,6 +43,8 @@ public class FarmerMovementScript : MovementScript
 
     protected override void Start()
     {
+        farmerController = GetComponent<FarmerController>();
+
         animator = root.GetComponent<Animator>();
 
         sprite = root.GetComponent<SpriteRenderer>();
@@ -45,7 +56,11 @@ public class FarmerMovementScript : MovementScript
 
     void FixedUpdate()
     {
-        if (!need_to_move) return;
+        if (!need_to_move)
+        {
+            animator.SetBool(is_walking, false);
+            return;
+        }
 
         //Vector2 toTarget = (Vector2)target.transform.position - rb.position;
         Vector2 toTarget = (Vector2)target.transform.position - (Vector2)this.transform.position;
@@ -53,11 +68,11 @@ public class FarmerMovementScript : MovementScript
         Debug.Log($"{toTarget}, target.transform.position = {(Vector2)target.transform.position} dist = {dist}");
         if (dist <= stop_distance)
         {
-            animator.SetBool("is_walking", false);
+            animator.SetBool(is_walking, false);
             return;
         }
 
-        animator.SetBool("is_walking", true);
+        animator.SetBool(is_walking, true);
 
         Vector2 step = toTarget.normalized * speed * Time.fixedDeltaTime;
 
@@ -66,6 +81,89 @@ public class FarmerMovementScript : MovementScript
         //rb.MovePosition(rb.position + step);
 
         //if (rotate_towards && step.sqrMagnitude > 0f) rb.rotation = Mathf.Atan2(step.y, step.x) * Mathf.Rad2Deg;
+    }
+
+    protected override void OnTriggerEnter2D(Collider2D other)
+    {
+        base.OnTriggerEnter2D(other);
+
+        if (other.CompareTag("Player"))
+        {
+            was_bunny_hit = false;
+            farmerController.ChangeAngerPercent(saw_bunny_anger_amount);
+        }
+    }
+
+    protected override void OnTriggerExit2D(Collider2D other)
+    {
+        base.OnTriggerExit2D(other);
+
+        if (other.CompareTag("Player"))
+        {
+            if (was_bunny_hit)
+            {
+                farmerController.ChangeAngerPercent(-saw_bunny_anger_amount);
+            }
+            else
+            {
+                farmerController.ChangeAngerPercent(saw_bunny_anger_amount);
+                StartAngerAnimation();
+            }
+
+            was_bunny_hit = false;
+        }
+    }
+
+    void StartAngerAnimation()
+    {
+        /*
+        if (farmerController.current_anger_percent < 0.35f)
+        {
+            need_to_move = true;
+            StopAngerAnimation();
+            return;
+        }
+        */
+
+        need_to_move = false;
+
+        if (farmerController.current_anger_percent >= 0.8f)
+        {
+            animator.SetBool(is_angry, true);
+        }
+        else if (farmerController.current_anger_percent >= 0.65f)
+        {
+            animator.SetBool(is_crying, true);
+            animator.SetBool(is_heart_attack, true);
+        }
+        else if (farmerController.current_anger_percent >= 0.5f)
+        {
+            animator.SetBool(is_crying, false);
+            animator.SetBool(is_heart_attack, true);
+        }
+        else if (farmerController.current_anger_percent >= 0.35f)
+        {
+            animator.SetBool(is_crying, true);
+            animator.SetBool(is_heart_attack, false);
+        }
+        else
+        {
+            need_to_move = true;
+            StopAngerAnimation();
+        }
+    }
+
+    public void StopAngerAnimation()
+    {
+        SetAllAngerParametersFalse();
+        need_to_move = true;
+    }
+
+    public void SetAllAngerParametersFalse()
+    {
+        animator.SetBool(is_angry, false);
+        animator.SetBool(is_crying, false);
+        animator.SetBool(is_heart_attack, false);
     }
 
     void SetDirection(Vector2 vector)
@@ -161,10 +259,10 @@ public class FarmerMovementScript : MovementScript
 
     void SetAllDirectionsFalse()
     {
-        animator.SetBool("is_F", false);
-        animator.SetBool("is_RF", false);
-        animator.SetBool("is_R", false);
-        animator.SetBool("is_RB", false);
-        animator.SetBool("is_B", false);
+        animator.SetBool(is_F, false);
+        animator.SetBool(is_RF, false);
+        animator.SetBool(is_R, false);
+        animator.SetBool(is_RB, false);
+        animator.SetBool(is_B, false);
     }
 }
