@@ -9,12 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8973726422212903118}
-  - component: {fileID: 9122754500495488864}
+  - component: {fileID: 3057766077612273218}
   - component: {fileID: 8448024621443896080}
   - component: {fileID: 176481971783504411}
-  - component: {fileID: 793928129551186254}
   - component: {fileID: 1207261674822900103}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bunny
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -36,7 +35,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9122754500495488864
+--- !u!114 &3057766077612273218
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,17 +44,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6960806309160655013}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a168f68a8899a3e4ea9455131ad6f53f, type: 3}
+  m_Script: {fileID: 11500000, guid: 727f56c8126a8be4ba5ae919de599842, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max_health: 10
-  walkSpeed: 2
-  runSpeed: 5
-  crawlSpeed: 1
-  animator: {fileID: 8448024621443896080}
-  sprite: {fileID: 176481971783504411}
-  height: 1
-  height_constant: 1
+  baseOrder: 0
+  mul: 10
 --- !u!95 &8448024621443896080
 Animator:
   serializedVersion: 7
@@ -133,33 +126,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &793928129551186254
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6960806309160655013}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 4
 --- !u!70 &1207261674822900103
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

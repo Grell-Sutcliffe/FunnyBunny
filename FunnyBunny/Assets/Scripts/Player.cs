@@ -1,10 +1,15 @@
 using System;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour
 {
+    public GameObject farmer_GO;
+
     UIController UIcontroller;
+    FarmerController farmerController;
+    FarmerMovementScript farmerMovementScript;
 
     [SerializeField] float max_health = 10;
     float current_health;
@@ -33,9 +38,17 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        farmerController = farmer_GO.GetComponent<FarmerController>();
+        farmerMovementScript = farmer_GO.GetComponent<FarmerMovementScript>();
+
         current_health = max_health;
     }
 
+
+    public Vector3 GetPos()
+    {
+        return this.transform.position; 
+    }
     void Awake()
     {
         UIcontroller = GameObject.Find("Canvas").GetComponent<UIController>();
@@ -106,6 +119,10 @@ public class Player : MonoBehaviour
             height = height_constant;
     }
 
+    public void WrongAnim()
+    {
+        animator.SetTrigger("Wrong");
+    }
     private void Flip()
     {
         if (Mathf.Abs(moveInput.x) > 0.01f) // if sprite is exist?
@@ -141,6 +158,15 @@ public class Player : MonoBehaviour
     public void Destroy()
     {
         this.gameObject.SetActive(false);
+    }
+
+    public void ChangeHealth(float amount, bool is_hurt_by_farmer = false)
+    {
+        if (is_hurt_by_farmer)
+        {
+            farmerMovementScript.was_bunny_hit = true;
+        }
+        ChangeHealth(amount);
     }
 
     public void ChangeHealth(float amount)

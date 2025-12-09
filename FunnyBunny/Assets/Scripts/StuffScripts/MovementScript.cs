@@ -17,6 +17,7 @@ public abstract class MovementScript : MonoBehaviour
     //public float wait_on_point = 0.5f;
 
     protected int current_point_index;
+    protected bool need_to_move = true;
 
     bool is_chasing = false;
 
@@ -36,7 +37,7 @@ public abstract class MovementScript : MonoBehaviour
 
     protected void Update()
     {
-        if (is_chasing && player != null)
+        if (need_to_move && is_chasing && player != null)
         {
             //Debug.Log("Chase");
             target = player_GO;
@@ -51,7 +52,7 @@ public abstract class MovementScript : MonoBehaviour
         }
     }
 
-    protected void OnTriggerEnter2D(Collider2D other)
+    protected virtual void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
@@ -66,7 +67,7 @@ public abstract class MovementScript : MonoBehaviour
         }
     }
 
-    protected void OnTriggerExit2D(Collider2D other)
+    protected virtual void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
@@ -97,11 +98,14 @@ public abstract class MovementScript : MonoBehaviour
 
             while (Vector3.Distance(transform.position, targetPos) > 0.01f)
             {
-                transform.position = Vector3.MoveTowards(
-                    transform.position,
-                    targetPos,
-                    move_speed * Time.deltaTime
-                );
+                if (need_to_move)
+                {
+                    transform.position = Vector3.MoveTowards(
+                        transform.position,
+                        targetPos,
+                        move_speed * Time.deltaTime
+                    );
+                }
 
                 yield return null;
             }
@@ -148,11 +152,14 @@ public abstract class MovementScript : MonoBehaviour
 
         while (Vector3.Distance(transform.position, targetPos) > 0.01f)
         {
-            transform.position = Vector3.MoveTowards(
-                transform.position,
-                targetPos,
-                move_speed * Time.deltaTime
-            );
+            if (need_to_move)
+            {
+                transform.position = Vector3.MoveTowards(
+                    transform.position,
+                    targetPos,
+                    move_speed * Time.deltaTime
+                );
+            }
 
             yield return null;
         }
