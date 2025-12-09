@@ -1609,7 +1609,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   eyesPosition: {fileID: 1123022307}
   playerTransform: {fileID: 285754711}
   player_GO: {fileID: 285754710}
@@ -3314,7 +3314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   eyesPosition: {fileID: 2040990974}
   playerTransform: {fileID: 285754711}
   player_GO: {fileID: 475812280}
