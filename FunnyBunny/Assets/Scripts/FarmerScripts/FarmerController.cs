@@ -46,6 +46,7 @@ public class FarmerController : MonoBehaviour
 
     public void ChangeAngerPercent(float amount)
     {
+        Debug.Log($"DEDUS kryt {amount}");
         current_anger_percent += amount;
 
         if (current_anger_percent > 1f)

@@ -38,6 +38,8 @@ public class Player : MonoBehaviour
     private bool isAlive = true;
     private bool isRunning = true;
 
+
+
     private void Start()
     {
         farmerController = farmer_GO.GetComponent<FarmerController>();
@@ -64,6 +66,7 @@ public class Player : MonoBehaviour
         //Debug.Log(height);
         if (!isAlive)
             return;
+     
         HandleMovement();
     }
 
@@ -194,6 +197,6 @@ public class Player : MonoBehaviour
         Debug.Log($"current_health = {current_health}, max_health = {max_health}, damage_amount = {amount}");
 
         if (current_health == 0) Die();
-        if (amount < 0) animator.SetTrigger("Hit");
+        if (amount < 0 && isAlive) animator.SetTrigger("Hit");
     }
 }
