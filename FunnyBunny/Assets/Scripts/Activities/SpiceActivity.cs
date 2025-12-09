@@ -15,6 +15,10 @@ public class SpiceActivity : Bebebe, Activities, IPointerDownHandler
 
         base.Start();
     }
+    override protected void OnActivate()
+    {
+        Debug.Log("Максим прав");
+    }
     public int GetKey()
     {
         return idActivate;

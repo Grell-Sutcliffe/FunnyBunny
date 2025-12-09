@@ -152,9 +152,13 @@ public class Player : MonoBehaviour
     {
         this.gameObject.SetActive(false);
     }
-
+    public void Hit()
+    {
+        animator.SetTrigger("Hit");
+    }
     public void ChangeHealth(float amount)
     {
+        Debug.Log("AAAAA");
         current_health += amount;
 
         if (current_health > max_health) current_health = max_health;
@@ -164,6 +168,7 @@ public class Player : MonoBehaviour
         UIcontroller.SetHealthBarPercent(current_health / max_health);
         Debug.Log($"current_health = {current_health}, max_health = {max_health}, damage_amount = {amount}");
 
-        if (current_health == 0) Die();
+        if (current_health == 0) { Die(); }
+        else if (amount < 0){ Hit(); }
     }
 }

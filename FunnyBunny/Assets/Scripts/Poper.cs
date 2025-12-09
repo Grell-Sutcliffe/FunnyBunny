@@ -22,19 +22,28 @@ public abstract class Bebebe : MonoBehaviour
     {
         mainController = GameObject.Find("MainController").GetComponent<MainController>();
     }
-
-    public void Click(int id)
+    protected virtual void OnActivate()
     {
-        float dist = Vector3.Distance(mainController.GetPlayerPos(), transform.position);
 
+    }
+    public void Click(int id)  // ЭТО НЕ КЛИК, ЗАЧЕМ Я ТАК СЕБЯ ЗАПУТАЛ??? ЭТО вызывается при активации 
+    {
+        
+        float dist = Vector3.Distance(mainController.GetPlayerPos(), transform.position);
+        Debug.Log("ASDASDASDSAD");
         if (dist >= 2f)
         {
             return;
         }
         if (id == idActivate)
         {
+            if (isActive)
+            {
+                return; // допустим так
+            }
             Debug.Log("ACTIVATED");
             isActive = true;
+            OnActivate();
         }
         else
         {
