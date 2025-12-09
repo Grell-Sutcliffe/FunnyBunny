@@ -41,17 +41,18 @@ public class SpiceActivity : Bebebe, Activities, IPointerDownHandler
     {
         isActive = true;
     }
-    /*
+    
     private void OnTriggerEnter2D(Collider2D collision) // add tag !!!!!!!
     {
-        //Debug.Log(12123);
-        if (collision.CompareTag("Respawn"))
+        Debug.Log(12123);
+        if (collision.CompareTag("Enemy"))
         {
+            isActive = true;
             Trigger();
 
         }
     }
-    */
+    
     public void Trigger()
     {
         if (!isActive)
@@ -61,7 +62,10 @@ public class SpiceActivity : Bebebe, Activities, IPointerDownHandler
         }
         Debug.Log("added");
         animator.SetTrigger("hit");
-        
+        Debug.Log($"trigered {0.7f}");
+        mainController.FC.ChangeAngerPercent(0.7f);
+
+
 
     }
     // Update is called once per frame

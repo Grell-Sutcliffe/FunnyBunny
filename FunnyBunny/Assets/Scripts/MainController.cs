@@ -18,6 +18,8 @@ public class MainController : MonoBehaviour
 
     [SerializeField]
     public Player playerScript;
+    [SerializeField]
+    public FarmerController FC;
     public GameObject prefPoper;
     public static MainController Instance { get; private set; }
     // [SerializeField] GameObject healthBar;
