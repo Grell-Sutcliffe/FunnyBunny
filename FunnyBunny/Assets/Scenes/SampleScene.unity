@@ -1163,7 +1163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseOrder: 0
-  mul: 100
+  mul: 10
 --- !u!114 &744808214
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseOrder: 0
-  mul: 100
+  mul: 10
 --- !u!95 &8448024621443896080
 Animator:
   serializedVersion: 7
