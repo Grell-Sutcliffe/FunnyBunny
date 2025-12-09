@@ -933,6 +933,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 519940354}
+  - component: {fileID: 519940355}
   m_Layer: 7
   m_Name: WhiteChicken
   m_TagString: Untagged
@@ -956,6 +957,22 @@ Transform:
   - {fileID: 1056493006}
   m_Father: {fileID: 299369795}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519940355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519940352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a74ea1937ec033341a3f184ac8637fd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement_points_GO: {fileID: 0}
+  root: {fileID: 1056493005}
+  move_speed: 1
+  chase_speed: 0.6
 --- !u!1001 &530330426
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3758,6 +3775,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1618113344}
+  - component: {fileID: 1618113345}
   m_Layer: 7
   m_Name: DarkChicken
   m_TagString: Untagged
@@ -3781,6 +3799,22 @@ Transform:
   - {fileID: 1765636041}
   m_Father: {fileID: 299369795}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1618113345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618113342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a74ea1937ec033341a3f184ac8637fd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement_points_GO: {fileID: 0}
+  root: {fileID: 1765636040}
+  move_speed: 1
+  chase_speed: 0.6
 --- !u!1 &1626265674
 GameObject:
   m_ObjectHideFlags: 0
@@ -4190,6 +4224,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1768026037}
+  - component: {fileID: 1768026038}
   m_Layer: 7
   m_Name: Petuh
   m_TagString: Untagged
@@ -4213,6 +4248,22 @@ Transform:
   - {fileID: 977435753}
   m_Father: {fileID: 299369795}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1768026038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768026036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a74ea1937ec033341a3f184ac8637fd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement_points_GO: {fileID: 0}
+  root: {fileID: 977435752}
+  move_speed: 1
+  chase_speed: 0.6
 --- !u!1 &1769547442
 GameObject:
   m_ObjectHideFlags: 0
@@ -4783,6 +4834,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1857660831}
+  - component: {fileID: 1857660832}
   m_Layer: 7
   m_Name: Ciplenka
   m_TagString: Untagged
@@ -4806,6 +4858,22 @@ Transform:
   - {fileID: 1938034319}
   m_Father: {fileID: 299369795}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1857660832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857660830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a74ea1937ec033341a3f184ac8637fd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement_points_GO: {fileID: 0}
+  root: {fileID: 1938034318}
+  move_speed: 1
+  chase_speed: 0.6
 --- !u!1001 &1878297917
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5471,6 +5539,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2094630266}
+  - component: {fileID: 2094630267}
   m_Layer: 7
   m_Name: Ciplenok
   m_TagString: Untagged
@@ -5494,6 +5563,22 @@ Transform:
   - {fileID: 1254564902}
   m_Father: {fileID: 299369795}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2094630267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094630265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a74ea1937ec033341a3f184ac8637fd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement_points_GO: {fileID: 0}
+  root: {fileID: 1254564901}
+  move_speed: 1
+  chase_speed: 0.6
 --- !u!4 &2125657003 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8180230559524428629, guid: 48a28f4fee49e254eae75ef36ce32f14, type: 3}

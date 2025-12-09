@@ -66,6 +66,7 @@ public class MainController : MonoBehaviour
     public void ChickenCry()
     {
         // MoveCameraToChickens();
+        Debug.Log("CHICKEN CRY");
 
         foreach (Transform child in chickens.transform)
         {

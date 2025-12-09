@@ -203,7 +203,10 @@ public class ChickenACScript : MonoBehaviour
 
     void FillListOfMovementPoints()
     {
-        list_of_movement_points = movement_points_GO.GetComponentsInChildren<MonoBehaviour>().OfType<Point>().ToList();
+        if (movement_points_GO != null)
+        {
+            list_of_movement_points = movement_points_GO.GetComponentsInChildren<MonoBehaviour>().OfType<Point>().ToList();
+        }
     }
 
     public void ChickenCry()

@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -23,7 +24,7 @@ public abstract class MovementScript : MonoBehaviour
     protected bool is_chasing = false;
 
     protected float speed = 1f;
-    protected float stop_distance = 0f;
+    protected float stop_distance = 0.5f;
     protected bool rotate_towards = false;
 
     public bool was_bunny_hit = false;
@@ -66,6 +67,15 @@ public abstract class MovementScript : MonoBehaviour
         {
             //Debug.Log("Chase");
             target = player_GO;
+
+            Vector2 toTarget = (Vector2)target.transform.position - (Vector2)this.transform.position;
+            float dist = toTarget.magnitude;
+
+            if (dist <= stop_distance)
+            {
+                animator.SetBool(is_walking, false);
+                return;
+            }
 
             Vector3 targetPos = player.position;
 
