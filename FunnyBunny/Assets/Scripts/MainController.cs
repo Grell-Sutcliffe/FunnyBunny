@@ -8,6 +8,13 @@ using UnityEngine.UI;
 public class MainController : MonoBehaviour
 {
     public GameObject chickens;
+    public GameObject pausePanel;
+    public Image pauseButtonImage;
+
+    bool is_paused = false;
+
+    public Sprite pause_sprite_pause;
+    public Sprite pause_sprite_resume;
 
     [SerializeField]
     public Player playerScript;
@@ -85,14 +92,40 @@ public class MainController : MonoBehaviour
     {
         stalker.ChangeImg(empty);
     }
-    void Start()
-    {
 
+    public void PauseButton()
+    {
+        if (is_paused)
+        {
+            Resume();
+        }
+        else
+        {
+            Pause();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    void Pause()
     {
+        Time.timeScale = 0f;
+
+        is_paused = true;
+
+        pauseButtonImage.sprite = pause_sprite_resume;
+
+        if (pausePanel != null)
+            pausePanel.SetActive(true);
     }
-   
+
+    void Resume()
+    {
+        Time.timeScale = 1f;
+
+        is_paused = false;
+
+        pauseButtonImage.sprite = pause_sprite_pause;
+
+        if (pausePanel != null)
+            pausePanel.SetActive(false);
+    }
 }

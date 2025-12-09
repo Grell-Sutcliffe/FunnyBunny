@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bullet
   - Gun
+  - PlayerCollider
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - Gun
   - Environment
   - NPC
-  - 
+  - PlayerCollider
   - 
   - 
   - 

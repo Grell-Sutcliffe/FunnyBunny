@@ -65,7 +65,7 @@ public class FarmerMovementScript : MovementScript
     {
         base.OnTriggerEnter2D(other);
 
-        if (other.CompareTag("Player"))
+        if (other.CompareTag(player_tag))
         {
             was_bunny_hit = false;
             farmerController.ChangeAngerPercent(saw_bunny_anger_amount);
@@ -81,7 +81,7 @@ public class FarmerMovementScript : MovementScript
     {
         base.OnTriggerExit2D(other);
 
-        if (other.CompareTag("Player"))
+        if (other.CompareTag(player_tag))
         {
             if (was_bunny_hit)
             {

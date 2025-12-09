@@ -36,6 +36,8 @@ public abstract class MovementScript : MonoBehaviour
     protected string is_sleeping = "is_sleeping";
     protected string is_happy = "is_happy";
 
+    protected string player_tag = "PlayerCollider";
+
     protected Vector2 step = Vector2.zero;
 
     Coroutine moveCoroutine;
@@ -127,7 +129,7 @@ public abstract class MovementScript : MonoBehaviour
 
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag(player_tag))
         {
             Debug.Log("OnTriggerEnter");
             is_chasing = true;
@@ -142,7 +144,7 @@ public abstract class MovementScript : MonoBehaviour
 
     protected virtual void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag(player_tag))
         {
             is_chasing = false;
 
