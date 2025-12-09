@@ -8,6 +8,7 @@ public abstract class MovementScript : MonoBehaviour
     public GameObject player_GO;
 
     public GameObject movement_points_GO;
+    public GameObject root;
 
     //protected List<GameObject> list_of_movement_points;
     //protected List<Point> list_of_movement_points;
@@ -19,14 +20,36 @@ public abstract class MovementScript : MonoBehaviour
     protected int current_point_index;
     protected bool need_to_move = true;
 
-    bool is_chasing = false;
+    protected bool is_chasing = false;
+
+    protected float speed = 1f;
+    protected float stop_distance = 0f;
+    protected bool rotate_towards = false;
+
+    public bool was_bunny_hit = false;
+
+    protected bool is_right;
+
+    protected Animator animator;
+
+    protected string is_walking = "is_walking";
+    protected string is_angry = "is_angry";
+    protected string is_crying = "is_crying";
+    protected string is_heart_attack = "is_heart_attack";
+
+    protected Vector2 step = Vector2.zero;
 
     Coroutine moveCoroutine;
+    
+    protected SpriteRenderer sprite;
 
     protected GameObject target;
 
     protected virtual void Start()
     {
+        animator = root.GetComponent<Animator>();
+        sprite = root.GetComponent<SpriteRenderer>();
+
         FillListOfMovementPoints();
 
         if (list_of_movement_points.Count > 0)
@@ -50,6 +73,59 @@ public abstract class MovementScript : MonoBehaviour
                 chase_speed * Time.deltaTime
             );
         }
+    }
+
+    protected virtual void FixedUpdate()
+    {
+        if (!need_to_move)
+        {
+            animator.SetBool(is_walking, false);
+            return;
+        }
+
+        //Vector2 toTarget = (Vector2)target.transform.position - rb.position;
+        Vector2 toTarget = (Vector2)target.transform.position - (Vector2)this.transform.position;
+        float dist = toTarget.magnitude;
+        Debug.Log($"{toTarget}, target.transform.position = {(Vector2)target.transform.position} dist = {dist}");
+        if (dist <= stop_distance)
+        {
+            animator.SetBool(is_walking, false);
+            return;
+        }
+
+        animator.SetBool(is_walking, true);
+
+        if (is_chasing)
+        {
+            speed = chase_speed;
+        }
+        else
+        {
+            speed = move_speed;
+        }
+        step = toTarget.normalized * speed * Time.fixedDeltaTime;
+
+        // SetDirection(step);
+
+        //rb.MovePosition(rb.position + step);
+
+        //if (rotate_towards && step.sqrMagnitude > 0f) rb.rotation = Mathf.Atan2(step.y, step.x) * Mathf.Rad2Deg;
+    }
+
+    protected float GetAngle(Vector2 vector)
+    {
+        float angleRad = Mathf.Atan2(vector.y, vector.x);
+        float angleDeg = angleRad * Mathf.Rad2Deg;
+
+        float angle = (90f - angleDeg + 360f) % 360f;
+
+        return angle;
+    }
+
+    protected void Flip()
+    {
+        sprite.flipX = !sprite.flipX;
+        //sprite.flipY = !sprite.flipY;
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D other)
