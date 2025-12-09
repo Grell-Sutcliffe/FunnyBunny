@@ -1888,8 +1888,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chickens: {fileID: 299369794}
   playerScript: {fileID: 285754713}
-  farmerMovementScript: {fileID: 0}
-  doggyMovementScript: {fileID: 0}
+  farmerMovementScript: {fileID: 1381742870}
+  doggyMovementScript: {fileID: 762398603}
   prefPoper: {fileID: 4001086049107452588, guid: 45fc0a734d877a94c8dced674663467d, type: 3}
   inventory: {fileID: 1230697549}
   ListInventories: []
