@@ -36,6 +36,8 @@ public abstract class MovementScript : MonoBehaviour
     protected string is_angry = "is_angry";
     protected string is_crying = "is_crying";
     protected string is_heart_attack = "is_heart_attack";
+    protected string is_sleeping = "is_sleeping";
+    protected string is_happy = "is_happy";
 
     protected Vector2 step = Vector2.zero;
 

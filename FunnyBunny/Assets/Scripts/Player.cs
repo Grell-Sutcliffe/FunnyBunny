@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour
 {
+    public MainController mainController;
     public GameObject farmer_GO;
 
     UIController UIcontroller;
@@ -163,6 +164,8 @@ public class Player : MonoBehaviour
 
         rb.linearVelocity = Vector2.zero;
         rb.angularVelocity = 0f;
+
+        mainController.ChickenCry();
     }
 
     public void Destroy()

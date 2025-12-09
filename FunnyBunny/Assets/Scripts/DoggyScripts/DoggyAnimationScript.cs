@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class DoggyAnimationScript : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    DoggyMovementScript doggyMovementScript;
+
+    private void Start()
     {
-        
+        doggyMovementScript = GetComponentInParent<DoggyMovementScript>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void StopAngerAnimation()
     {
-        
+        doggyMovementScript.StopAngerAnimation();
     }
 }

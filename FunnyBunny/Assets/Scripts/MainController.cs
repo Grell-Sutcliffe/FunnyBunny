@@ -7,7 +7,8 @@ using UnityEngine.UI;
 
 public class MainController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public GameObject chickens;
+
     [SerializeField]
     public Player playerScript;
     public GameObject prefPoper;
@@ -60,6 +61,20 @@ public class MainController : MonoBehaviour
         //Debug.Log(FillInv[0]);
         ListInventories = new List<InventoryScript>(inventory.GetComponentsInChildren<InventoryScript>());
         
+    }
+
+    public void ChickenCry()
+    {
+        // MoveCameraToChickens();
+
+        foreach (Transform child in chickens.transform)
+        {
+            ChickenACScript chickenScript = child.GetComponent<ChickenACScript>();
+            if (chickenScript != null)
+            {
+                chickenScript.ChickenCry();
+            }
+        }
     }
 
     public void ChangeStalkImg(Sprite i)
