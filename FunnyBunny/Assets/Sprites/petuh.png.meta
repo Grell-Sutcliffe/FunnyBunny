@@ -122,7 +122,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 22
         width: 22
         height: 22
       alignment: 7
@@ -144,7 +144,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 22
-        y: 0
+        y: 22
         width: 22
         height: 22
       alignment: 7
@@ -166,7 +166,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 44
-        y: 0
+        y: 22
         width: 22
         height: 22
       alignment: 7
@@ -188,7 +188,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 66
-        y: 0
+        y: 22
         width: 22
         height: 22
       alignment: 7
@@ -210,7 +210,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 88
-        y: 0
+        y: 22
         width: 22
         height: 22
       alignment: 7
@@ -232,7 +232,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 110
-        y: 0
+        y: 22
         width: 22
         height: 22
       alignment: 7
@@ -253,7 +253,7 @@ TextureImporter:
       name: petuh_6
       rect:
         serializedVersion: 2
-        x: 132
+        x: 0
         y: 0
         width: 22
         height: 22
@@ -267,6 +267,116 @@ TextureImporter:
       bones: []
       spriteID: 1a0780e0f2e66ba60800000000000000
       internalID: 7689454562159653025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: petuh_7
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 0
+        width: 22
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0997bc751a241c04b978d7afc8f741c2
+      internalID: -629075614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: petuh_8
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 0
+        width: 22
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 471c399a334978140850485f20316af9
+      internalID: -1453972627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: petuh_9
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 0
+        width: 22
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b88d47c5764e0f44a235de6d8335691
+      internalID: -1776415587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: petuh_10
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 0
+        width: 22
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed505c0ffbb6ed2489ccfdafe288e9b4
+      internalID: 482487607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: petuh_11
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 0
+        width: 22
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2f9088de88330b4d9a11ed005370c79
+      internalID: 997780605
       vertices: []
       indices: 
       edges: []
@@ -287,11 +397,16 @@ TextureImporter:
     nameFileIdTable:
       petuh_0: -8610140351760242034
       petuh_1: -504548301553089849
+      petuh_10: 482487607
+      petuh_11: 997780605
       petuh_2: 5093518597235405044
       petuh_3: -3037537629814521690
       petuh_4: -1256098150470987408
       petuh_5: -4801088406351568585
       petuh_6: 7689454562159653025
+      petuh_7: -629075614
+      petuh_8: -1453972627
+      petuh_9: -1776415587
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

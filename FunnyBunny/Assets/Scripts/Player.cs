@@ -1,10 +1,12 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour
 {
+    public MainController mainController;
     public GameObject farmer_GO;
 
     UIController UIcontroller;
@@ -63,6 +65,15 @@ public class Player : MonoBehaviour
         if (!isAlive)
             return;
         HandleMovement();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Bullet"))
+        {
+            BulletScript bulletScript = collision.GetComponent<BulletScript>();
+            ChangeHealth(-bulletScript.damage, true);
+        }
     }
 
     private void HandleMovement()
@@ -153,6 +164,8 @@ public class Player : MonoBehaviour
 
         rb.linearVelocity = Vector2.zero;
         rb.angularVelocity = 0f;
+
+        mainController.BunnyDie();
     }
 
     public void Destroy()
@@ -178,7 +191,7 @@ public class Player : MonoBehaviour
         if (current_health <= 0) current_health = 0;
 
         UIcontroller.SetHealthBarPercent(current_health / max_health);
-        Debug.Log($"current_health = {current_health}, max_health = {max_health}, damage_amount = {amount}");
+        //Debug.Log($"current_health = {current_health}, max_health = {max_health}, damage_amount = {amount}");
 
         if (current_health == 0) Die();
         if (amount < 0) animator.SetTrigger("Hit");

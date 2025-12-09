@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-    [SerializeField]
-    float damage = 1;
+    public float damage = 1f;
     [SerializeField]
     float speed = 5f;
 
@@ -30,7 +29,7 @@ public class BulletScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("BANG BANG COLLISION WITH PLAYER");
+            //Debug.Log("BANG BANG COLLISION WITH PLAYER");
             collision.gameObject.GetComponent<Player>().ChangeHealth(-damage, true);
         }
         Destroy();

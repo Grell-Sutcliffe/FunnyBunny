@@ -7,6 +7,8 @@ public class GunScript : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePoint;
 
+    public SpriteRenderer gun_sprite_renderer;
+
     public float shootCooldown = 1f;
     float timer;
 
@@ -30,7 +32,15 @@ public class GunScript : MonoBehaviour
 
     public void StartShooting()
     {
-        shootCoroutine = StartCoroutine(ShootLoop());
+        if (shootCoroutine == null)
+        {
+            shootCoroutine = StartCoroutine(ShootLoop());
+        }
+
+        if (gun_sprite_renderer == null)
+        {
+            gun_sprite_renderer = GetComponentInChildren<SpriteRenderer>();
+        }
     }
 
     public void StopShooting()
@@ -64,6 +74,14 @@ public class GunScript : MonoBehaviour
 
         Vector2 dir = (targetPos - firePos).normalized;
 
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+
+        angle += 180f;
+
+        //Debug.Log($"angle = {angle}");
+
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
         GameObject bulletGO = Instantiate(bulletPrefab, firePos, Quaternion.identity);
         BulletScript bullet = bulletGO.GetComponent<BulletScript>();
         bullet.SetDirection(dir);
@@ -71,7 +89,7 @@ public class GunScript : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        Debug.Log("EXIT");
+        //Debug.Log("EXIT");
         if (other.CompareTag("Bullet"))
         {
             Debug.Log("BANG BANG DESTROY BULLET");

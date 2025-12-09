@@ -61,6 +61,12 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: is_happy
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: is_crying
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: is_angry
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6692680560722950747}
   m_Solo: 0
@@ -88,6 +94,12 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: is_angry
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: is_happy
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: is_crying
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 661494021344564863}
@@ -142,6 +154,12 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: is_happy
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: is_angry
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: is_crying
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -3455467204146506114}
@@ -409,6 +427,12 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: is_happy
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: is_crying
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: is_sleeping
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 5860885080479251988}
   m_Solo: 0
@@ -462,6 +486,12 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: is_happy
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: is_crying
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: is_sleeping
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 3009878996297371166}

@@ -65,10 +65,10 @@ public class FarmerMovementScript : MovementScript
     {
         base.OnTriggerEnter2D(other);
 
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("PlayerVisible"))
         {
             was_bunny_hit = false;
-            farmerController.ChangeAngerPercent(saw_bunny_anger_amount);
+            // farmerController.ChangeAngerPercent(saw_bunny_anger_amount);
 
             if (farmerController.current_anger_percent >= 0.5f)
             {
@@ -81,7 +81,7 @@ public class FarmerMovementScript : MovementScript
     {
         base.OnTriggerExit2D(other);
 
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("PlayerVisible"))
         {
             if (was_bunny_hit)
             {
@@ -220,7 +220,7 @@ public class FarmerMovementScript : MovementScript
 
     void SetDirection(string direction)
     {
-        Debug.Log($"direction = {direction}");
+        //Debug.Log($"direction = {direction}");
         SetAllDirectionsFalse();
         animator.SetBool(direction, true);
     }

@@ -143,7 +143,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 13
+        y: 39
         width: 13
         height: 13
       alignment: 7
@@ -165,7 +165,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 13
-        y: 13
+        y: 39
         width: 13
         height: 13
       alignment: 7
@@ -187,7 +187,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 26
-        y: 13
+        y: 39
         width: 13
         height: 13
       alignment: 7
@@ -209,7 +209,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 39
-        y: 13
+        y: 39
         width: 13
         height: 13
       alignment: 7
@@ -231,7 +231,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 52
-        y: 13
+        y: 39
         width: 13
         height: 13
       alignment: 7
@@ -253,7 +253,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 65
-        y: 13
+        y: 39
         width: 13
         height: 13
       alignment: 7
@@ -274,8 +274,8 @@ TextureImporter:
       name: ciplenok_6
       rect:
         serializedVersion: 2
-        x: 78
-        y: 13
+        x: 0
+        y: 26
         width: 13
         height: 13
       alignment: 7
@@ -296,8 +296,8 @@ TextureImporter:
       name: ciplenok_7
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 13
+        y: 26
         width: 13
         height: 13
       alignment: 7
@@ -318,8 +318,8 @@ TextureImporter:
       name: ciplenok_8
       rect:
         serializedVersion: 2
-        x: 13
-        y: 0
+        x: 26
+        y: 26
         width: 13
         height: 13
       alignment: 7
@@ -340,8 +340,8 @@ TextureImporter:
       name: ciplenok_9
       rect:
         serializedVersion: 2
-        x: 26
-        y: 0
+        x: 39
+        y: 26
         width: 13
         height: 13
       alignment: 7
@@ -362,8 +362,8 @@ TextureImporter:
       name: ciplenok_10
       rect:
         serializedVersion: 2
-        x: 39
-        y: 0
+        x: 52
+        y: 26
         width: 13
         height: 13
       alignment: 7
@@ -384,8 +384,8 @@ TextureImporter:
       name: ciplenok_11
       rect:
         serializedVersion: 2
-        x: 52
-        y: 0
+        x: 65
+        y: 26
         width: 13
         height: 13
       alignment: 7
@@ -406,8 +406,8 @@ TextureImporter:
       name: ciplenok_12
       rect:
         serializedVersion: 2
-        x: 65
-        y: 0
+        x: 0
+        y: 13
         width: 13
         height: 13
       alignment: 7
@@ -428,8 +428,8 @@ TextureImporter:
       name: ciplenok_13
       rect:
         serializedVersion: 2
-        x: 78
-        y: 0
+        x: 13
+        y: 13
         width: 13
         height: 13
       alignment: 7
@@ -442,6 +442,226 @@ TextureImporter:
       bones: []
       spriteID: 59c0560d50e7d5c70800000000000000
       internalID: 8961457396973374613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ciplenok_14
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 13
+        width: 13
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 319dbdcd1c8321e4ebfdfd0b0946da76
+      internalID: 181909776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ciplenok_15
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 13
+        width: 13
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6574849de8aa34f42bc0fc6eefb9d2a9
+      internalID: 631359300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ciplenok_16
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 13
+        width: 13
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb6e94594facb9146b289fb3b6f04e16
+      internalID: 1751261582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ciplenok_17
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 13
+        width: 13
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c19cd17614c2244b83c8340bf6024aa
+      internalID: 248330026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ciplenok_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 13
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63587d380ab2faa4fb11c9de15277fc0
+      internalID: -977831372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ciplenok_19
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 0
+        width: 13
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c38118528e802f74ab76febee265fa0d
+      internalID: -303352200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ciplenok_20
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 0
+        width: 13
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e750fb57cd605154abd87ced3da48182
+      internalID: 545901563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ciplenok_21
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 0
+        width: 13
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d327e3093a8446a45a5e059017352bee
+      internalID: -535567974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ciplenok_22
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 0
+        width: 13
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7598977bb9a0ff4fa85da503615abf8
+      internalID: 149700792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ciplenok_23
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 0
+        width: 13
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b168bc8fe9071948a0ea2a09693e83a
+      internalID: 1364143397
       vertices: []
       indices: 
       edges: []
@@ -466,7 +686,17 @@ TextureImporter:
       ciplenok_11: 504199266744796278
       ciplenok_12: -5363807403430624167
       ciplenok_13: 8961457396973374613
+      ciplenok_14: 181909776
+      ciplenok_15: 631359300
+      ciplenok_16: 1751261582
+      ciplenok_17: 248330026
+      ciplenok_18: -977831372
+      ciplenok_19: -303352200
       ciplenok_2: -1999165191896603343
+      ciplenok_20: 545901563
+      ciplenok_21: -535567974
+      ciplenok_22: 149700792
+      ciplenok_23: 1364143397
       ciplenok_3: 4958549784960930689
       ciplenok_4: 7414501299744184824
       ciplenok_5: -7080435130507268315
