@@ -5,7 +5,10 @@ using UnityEngine;
 
 public abstract class MovementScript : MonoBehaviour
 {
-    public Transform player;
+    public LayerMask obstacleMask;
+    public Transform eyesPosition;
+
+    public Transform playerTransform;
     public GameObject player_GO;
 
     public GameObject movement_points_GO;
@@ -19,7 +22,7 @@ public abstract class MovementScript : MonoBehaviour
     //public float wait_on_point = 0.5f;
 
     protected int current_point_index;
-    protected bool need_to_move = true;
+    public bool need_to_move = true;
 
     protected bool is_chasing = false;
 
@@ -27,6 +30,7 @@ public abstract class MovementScript : MonoBehaviour
     protected float stop_distance = 0.5f;
     protected bool rotate_towards = false;
 
+    protected bool can_see_player = false;
     public bool was_bunny_hit = false;
 
     protected bool is_right;
@@ -43,10 +47,15 @@ public abstract class MovementScript : MonoBehaviour
     protected Vector2 step = Vector2.zero;
 
     Coroutine moveCoroutine;
-    
+
     protected SpriteRenderer sprite;
 
     protected GameObject target;
+
+    Rigidbody2D rb;
+
+    void Awake() => rb = GetComponentInChildren<Rigidbody2D>();
+
 
     protected virtual void Start()
     {
@@ -63,7 +72,9 @@ public abstract class MovementScript : MonoBehaviour
 
     protected void Update()
     {
-        if (need_to_move && is_chasing && player != null)
+        can_see_player = CanSeeBunny();
+
+        if (need_to_move && is_chasing &&/* can_see_player &&*/ playerTransform != null)
         {
             //Debug.Log("Chase");
             target = player_GO;
@@ -77,13 +88,15 @@ public abstract class MovementScript : MonoBehaviour
                 return;
             }
 
-            Vector3 targetPos = player.position;
+            /*
+            Vector3 targetPos = playerTransform.position;
 
             transform.position = Vector3.MoveTowards(
                 transform.position,
                 targetPos,
                 chase_speed * Time.deltaTime
             );
+            */
         }
     }
 
@@ -95,10 +108,9 @@ public abstract class MovementScript : MonoBehaviour
             return;
         }
 
-        //Vector2 toTarget = (Vector2)target.transform.position - rb.position;
         Vector2 toTarget = (Vector2)target.transform.position - (Vector2)this.transform.position;
         float dist = toTarget.magnitude;
-        //Debug.Log($"{toTarget}, target.transform.position = {(Vector2)target.transform.position} dist = {dist}");
+
         if (dist <= stop_distance)
         {
             animator.SetBool(is_walking, false);
@@ -119,9 +131,23 @@ public abstract class MovementScript : MonoBehaviour
 
         // SetDirection(step);
 
-        //rb.MovePosition(rb.position + step);
+        rb.MovePosition(rb.position + step);
 
         //if (rotate_towards && step.sqrMagnitude > 0f) rb.rotation = Mathf.Atan2(step.y, step.x) * Mathf.Rad2Deg;
+    }
+
+    bool CanSeeBunny()
+    {
+        if (playerTransform == null) return false;
+
+        Vector2 origin = eyesPosition.position;
+        Vector2 target = playerTransform.position;
+
+        RaycastHit2D hit = Physics2D.Linecast(origin, target, obstacleMask);
+
+        Debug.Log(hit.collider.name);
+
+        return hit.collider == null;
     }
 
     protected float GetAngle(Vector2 vector)
@@ -142,9 +168,9 @@ public abstract class MovementScript : MonoBehaviour
 
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("PlayerVisible"))
         {
-            Debug.Log("OnTriggerEnter");
+            Debug.Log("OnTriggerEnter FARMER");
             is_chasing = true;
 
             if (moveCoroutine != null)
@@ -157,7 +183,7 @@ public abstract class MovementScript : MonoBehaviour
 
     protected virtual void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("PlayerVisible"))
         {
             is_chasing = false;
 
@@ -183,19 +209,20 @@ public abstract class MovementScript : MonoBehaviour
             target = targetPoint;
 
             Vector3 targetPos = targetPoint.transform.position;
-
             while (Vector3.Distance(transform.position, targetPos) > 0.01f)
             {
-                if (need_to_move)
-                {
-                    transform.position = Vector3.MoveTowards(
-                        transform.position,
-                        targetPos,
-                        move_speed * Time.deltaTime
-                    );
-                }
+                /*
+                    if (need_to_move)
+                    {
+                        transform.position = Vector3.MoveTowards(
+                            transform.position,
+                            targetPos,
+                            move_speed * Time.deltaTime
+                        );
+                    }
 
-                yield return null;
+                    yield return null;
+                */
             }
 
             transform.position = targetPos;
@@ -240,15 +267,17 @@ public abstract class MovementScript : MonoBehaviour
 
         while (Vector3.Distance(transform.position, targetPos) > 0.01f)
         {
-            if (need_to_move)
-            {
-                transform.position = Vector3.MoveTowards(
-                    transform.position,
-                    targetPos,
-                    move_speed * Time.deltaTime
-                );
-            }
+            /*
+                if (need_to_move)
+                {
+                    transform.position = Vector3.MoveTowards(
+                        transform.position,
+                        targetPos,
+                        move_speed * Time.deltaTime
+                    );
+                }
 
+            */
             yield return null;
         }
 

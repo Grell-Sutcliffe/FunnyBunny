@@ -38,7 +38,7 @@ public class DoggyMovementScript : MovementScript
     {
         base.OnTriggerEnter2D(other);
 
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("PlayerVisible"))
         {
             animator.SetBool(is_angry, true);
         }
@@ -48,7 +48,7 @@ public class DoggyMovementScript : MovementScript
     {
         base.OnTriggerExit2D(other);
 
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("PlayerVisible"))
         {
             StartAngerAnimation();
         }
@@ -144,7 +144,7 @@ public class DoggyMovementScript : MovementScript
 
     void SetDirection(string direction)
     {
-        Debug.Log($"direction = {direction}");
+        //Debug.Log($"direction = {direction}");
         SetAllDirectionsFalse();
         animator.SetBool(direction, true);
     }

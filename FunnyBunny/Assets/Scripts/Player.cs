@@ -165,7 +165,7 @@ public class Player : MonoBehaviour
         rb.linearVelocity = Vector2.zero;
         rb.angularVelocity = 0f;
 
-        mainController.ChickenCry();
+        mainController.BunnyDie();
     }
 
     public void Destroy()
@@ -191,7 +191,7 @@ public class Player : MonoBehaviour
         if (current_health <= 0) current_health = 0;
 
         UIcontroller.SetHealthBarPercent(current_health / max_health);
-        Debug.Log($"current_health = {current_health}, max_health = {max_health}, damage_amount = {amount}");
+        //Debug.Log($"current_health = {current_health}, max_health = {max_health}, damage_amount = {amount}");
 
         if (current_health == 0) Die();
     }

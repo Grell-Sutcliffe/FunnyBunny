@@ -11,6 +11,8 @@ public class MainController : MonoBehaviour
 
     [SerializeField]
     public Player playerScript;
+    public FarmerMovementScript farmerMovementScript;
+    public DoggyMovementScript doggyMovementScript;
     public GameObject prefPoper;
     public static MainController Instance { get; private set; }
     // [SerializeField] GameObject healthBar;
@@ -63,7 +65,15 @@ public class MainController : MonoBehaviour
         
     }
 
-    public void ChickenCry()
+    public void BunnyDie()
+    {
+        farmerMovementScript.need_to_move = false;
+        doggyMovementScript.need_to_move = false;
+
+        ChickenCry();
+    }
+
+    void ChickenCry()
     {
         // MoveCameraToChickens();
         Debug.Log("CHICKEN CRY");

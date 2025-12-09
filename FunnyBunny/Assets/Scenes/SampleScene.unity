@@ -1244,7 +1244,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2040990974}
   m_Father: {fileID: 1381742872}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &744808208
@@ -1519,12 +1520,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1c8c704312a5fd4f948bcc19a5449ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 285754711}
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
+  eyesPosition: {fileID: 1123022307}
+  playerTransform: {fileID: 285754711}
   player_GO: {fileID: 285754710}
   movement_points_GO: {fileID: 1627161266}
   root: {fileID: 1160308926}
   move_speed: 1.2
   chase_speed: 1.5
+  need_to_move: 1
   was_bunny_hit: 0
 --- !u!1 &767658263
 GameObject:
@@ -1794,6 +1800,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chickens: {fileID: 299369794}
   playerScript: {fileID: 285754713}
+  farmerMovementScript: {fileID: 0}
+  doggyMovementScript: {fileID: 0}
   prefPoper: {fileID: 4001086049107452588, guid: 45fc0a734d877a94c8dced674663467d, type: 3}
   inventory: {fileID: 1230697549}
   ListInventories: []
@@ -2268,6 +2276,37 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!1 &1123022306
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1123022307}
+  m_Layer: 7
+  m_Name: Eyes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1123022307
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123022306}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.75, y: 2.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1160308927}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1160308926
 GameObject:
   m_ObjectHideFlags: 0
@@ -2302,7 +2341,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1123022307}
   m_Father: {fileID: 762398600}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1160308928
@@ -3184,12 +3224,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5501789171e3a85449850959d16c4be3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 46495915}
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
+  eyesPosition: {fileID: 2040990974}
+  playerTransform: {fileID: 285754711}
   player_GO: {fileID: 475812280}
   movement_points_GO: {fileID: 1265095824}
   root: {fileID: 744808206}
   move_speed: 0.5
   chase_speed: 0.6
+  need_to_move: 1
   was_bunny_hit: 0
 --- !u!114 &1381742871
 MonoBehaviour:
@@ -3481,6 +3526,7 @@ MonoBehaviour:
   player: {fileID: 46495915}
   bulletPrefab: {fileID: 1191261875591684103, guid: 454c515083f8c7d40a3fdcfe864555b0, type: 3}
   firePoint: {fileID: 1582875538}
+  gun_sprite_renderer: {fileID: 0}
   shootCooldown: 1
 --- !u!58 &1486520002
 CircleCollider2D:
@@ -5525,6 +5571,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2040990973
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2040990974}
+  m_Layer: 7
+  m_Name: Eyes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2040990974
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040990973}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.55, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 744808207}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2048882547 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8180230559524428629, guid: 48a28f4fee49e254eae75ef36ce32f14, type: 3}
