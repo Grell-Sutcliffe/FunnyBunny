@@ -102,7 +102,7 @@ public abstract class MovementScript : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        if (!need_to_move)
+        if (!need_to_move || target == null)
         {
             animator.SetBool(is_walking, false);
             return;
@@ -131,6 +131,7 @@ public abstract class MovementScript : MonoBehaviour
 
         // SetDirection(step);
 
+        if (rb == null) return;
         rb.MovePosition(rb.position + step);
 
         //if (rotate_towards && step.sqrMagnitude > 0f) rb.rotation = Mathf.Atan2(step.y, step.x) * Mathf.Rad2Deg;
@@ -145,9 +146,13 @@ public abstract class MovementScript : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.Linecast(origin, target, obstacleMask);
 
-        Debug.Log(hit.collider.name);
+        //Debug.Log(hit.collider.name);
 
-        return hit.collider == null;
+        if (hit.collider != null)
+        {
+            return true;
+        }
+        return false;
     }
 
     protected float GetAngle(Vector2 vector)
@@ -170,7 +175,7 @@ public abstract class MovementScript : MonoBehaviour
     {
         if (other.CompareTag("PlayerVisible"))
         {
-            Debug.Log("OnTriggerEnter FARMER");
+            //Debug.Log("OnTriggerEnter FARMER");
             is_chasing = true;
 
             if (moveCoroutine != null)
