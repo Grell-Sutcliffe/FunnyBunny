@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -63,6 +64,15 @@ public class Player : MonoBehaviour
         if (!isAlive)
             return;
         HandleMovement();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Bullet"))
+        {
+            BulletScript bulletScript = collision.GetComponent<BulletScript>();
+            ChangeHealth(-bulletScript.damage, true);
+        }
     }
 
     private void HandleMovement()

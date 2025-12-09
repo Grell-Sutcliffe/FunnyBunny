@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-    [SerializeField]
-    float damage = 1;
+    public float damage = 1;
     [SerializeField]
     float speed = 5f;
 
