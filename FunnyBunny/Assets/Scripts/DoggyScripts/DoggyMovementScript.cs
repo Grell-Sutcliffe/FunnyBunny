@@ -38,7 +38,7 @@ public class DoggyMovementScript : MovementScript
     {
         base.OnTriggerEnter2D(other);
 
-        if (other.CompareTag(player_tag))
+        if (other.CompareTag(player_tag) && need_to_chase_bunny)
         {
             animator.SetBool(is_angry, true);
         }
@@ -48,7 +48,7 @@ public class DoggyMovementScript : MovementScript
     {
         base.OnTriggerExit2D(other);
 
-        if (other.CompareTag(player_tag))
+        if (other.CompareTag(player_tag) && need_to_chase_bunny)
         {
             StartAngerAnimation();
             animator.SetBool(is_angry, false);
