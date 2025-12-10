@@ -2622,8 +2622,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -1975, y: 35}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchoredPosition: {x: -1800, y: -400}
+  m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!95 &578022730
 Animator:
@@ -4832,7 +4832,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 88077f5a6695ced4ab3ae934ffa7ff25, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -4930,9 +4930,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a11a300e1ba276c479f44b6e3b47b9b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slder: {fileID: 1864724986}
-  audio: {fileID: 0}
+  slider: {fileID: 1864724986}
+  audioSource: {fileID: 981742682}
   volume: 100
+  tracks:
+  - {fileID: 8300000, guid: 88077f5a6695ced4ab3ae934ffa7ff25, type: 3}
+  - {fileID: 8300000, guid: 2f70eeb549e25a34993f1300e620c32e, type: 3}
+  defaultVolume: 1
 --- !u!1001 &1013146987
 PrefabInstance:
   m_ObjectHideFlags: 0
