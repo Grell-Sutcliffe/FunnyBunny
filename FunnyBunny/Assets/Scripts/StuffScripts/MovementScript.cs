@@ -158,10 +158,13 @@ public abstract class MovementScript : MonoBehaviour
         if (current_point_index < 0 || current_point_index >= list_of_movement_points.Count)
             current_point_index = 0;
 
+        Debug.Log("START CORUTINE");
+
         while (true)
         {
             GameObject targetPoint = list_of_movement_points[current_point_index].GetPoint().point_GO;
             target = targetPoint;
+            Debug.Log("HELP");
 
             while (Vector2.Distance(transform.position, targetPoint.transform.position) > stop_distance)
             {

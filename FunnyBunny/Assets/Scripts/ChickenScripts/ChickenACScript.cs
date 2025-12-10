@@ -15,7 +15,7 @@ public class ChickenACScript : MonoBehaviour
     bool need_to_move = true;
 
     float speed = 1f;
-    float stop_distance = 0f;
+    float stop_distance = 0.03f;
     bool rotate_towards = false;
 
     bool is_right;
@@ -33,8 +33,11 @@ public class ChickenACScript : MonoBehaviour
 
     GameObject target;
 
+    protected Rigidbody2D rb;
+
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         animator = root.GetComponent<Animator>();
         sprite = root.GetComponent<SpriteRenderer>();
 
@@ -48,7 +51,7 @@ public class ChickenACScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!need_to_move)
+        if (!need_to_move || target == null)
         {
             animator.SetBool(is_walking, false);
             return;
@@ -68,6 +71,8 @@ public class ChickenACScript : MonoBehaviour
         step = toTarget.normalized * speed * Time.fixedDeltaTime;
 
         SetDirection(step);
+
+        if (rb != null) rb.MovePosition(rb.position + step);
     }
 
     void SetDirection(Vector2 vector)
@@ -121,29 +126,21 @@ public class ChickenACScript : MonoBehaviour
         if (current_point_index < 0 || current_point_index >= list_of_movement_points.Count)
             current_point_index = 0;
 
+        Debug.Log("START CORUTINE");
+
         while (true)
         {
             GameObject targetPoint = list_of_movement_points[current_point_index].point_GO;
-
             target = targetPoint;
+            Debug.Log("HELP");
 
-            Vector3 targetPos = targetPoint.transform.position;
-
-            while (Vector3.Distance(transform.position, targetPos) > 0.01f)
+            while (Vector2.Distance(transform.position, targetPoint.transform.position) > stop_distance)
             {
-                if (need_to_move)
-                {
-                    transform.position = Vector3.MoveTowards(
-                        transform.position,
-                        targetPos,
-                        move_speed * Time.deltaTime
-                    );
-                }
-
                 yield return null;
             }
 
-            transform.position = targetPos;
+            yield return new WaitForSeconds(list_of_movement_points[current_point_index].wait_time);
+
             current_point_index = (current_point_index + 1) % list_of_movement_points.Count;
         }
     }
@@ -173,41 +170,41 @@ public class ChickenACScript : MonoBehaviour
         if (list_of_movement_points.Count == 0)
             yield break;
 
-        int nearestIndex = GetNearestPointIndex();
-        GameObject targetPoint = list_of_movement_points[nearestIndex].point_GO;
+        if (current_point_index < 0 || current_point_index >= list_of_movement_points.Count)
+            current_point_index = 0;
 
-        target = targetPoint;
-
-        Vector3 targetPos = targetPoint.transform.position;
-
-        while (Vector3.Distance(transform.position, targetPos) > 0.01f)
+        while (true)
         {
-            if (need_to_move)
+            Point pointData = list_of_movement_points[current_point_index];
+            GameObject targetPoint = pointData.point_GO;
+
+            target = targetPoint;
+
+            while (Vector2.Distance(transform.position, targetPoint.transform.position) > stop_distance)
             {
-                transform.position = Vector3.MoveTowards(
-                    transform.position,
-                    targetPos,
-                    move_speed * Time.deltaTime
-                );
+                yield return null;
             }
 
-            yield return null;
+            yield return new WaitForSeconds(pointData.wait_time);
+
+            current_point_index = (current_point_index + 1) % list_of_movement_points.Count;
         }
-
-        transform.position = targetPos;
-
-        current_point_index = nearestIndex;
-
-        moveCoroutine = StartCoroutine(MoveAlongPointsLoop());
     }
 
     void FillListOfMovementPoints()
     {
-        list_of_movement_points = movement_points_GO.GetComponentsInChildren<MonoBehaviour>().OfType<Point>().ToList();
+        list_of_movement_points = new List<Point>();
+
+        foreach (Transform child in movement_points_GO.transform)
+        {
+            MovementPointScript temp_script = child.GetComponent<MovementPointScript>();
+            list_of_movement_points.Add(temp_script.GetPoint());
+        }
     }
 
     public void ChickenCry()
     {
+        need_to_move = false;
         animator.SetBool(is_walking, false);
         animator.SetBool(is_crying, true);
     }

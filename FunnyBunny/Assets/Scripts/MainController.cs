@@ -35,6 +35,9 @@ public class MainController : MonoBehaviour
     [SerializeField]
     Stalker stalker;
     List<int> FillInv = new List<int>(new int[10]);
+
+    public bool is_dead = false;
+
     public void AddToInv(Item item)
     {   int value = item.id;
         ListInventories = new List<InventoryScript>(inventory.GetComponentsInChildren<InventoryScript>());
@@ -75,6 +78,7 @@ public class MainController : MonoBehaviour
     public void ChickenCry()
     {
         // MoveCameraToChickens();
+        is_dead = true;
 
         foreach (Transform child in chickens.transform)
         {

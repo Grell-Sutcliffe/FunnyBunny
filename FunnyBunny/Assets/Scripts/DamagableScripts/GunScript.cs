@@ -28,6 +28,29 @@ public class GunScript : MonoBehaviour
     }
     */
 
+    private void Awake()
+    {
+        StopShooting();
+    }
+
+    private void Update()
+    {
+        if (player == null) return;
+
+        Vector2 targetPos = player.position;
+        Vector2 firePos = firePoint.position;
+
+        Vector2 dir = (targetPos - firePos).normalized;
+
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+
+        angle += 180f;
+
+        //Debug.Log($"angle = {angle}");
+
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+    }
+
     public void StartShooting()
     {
         shootCoroutine = StartCoroutine(ShootLoop());
@@ -63,6 +86,14 @@ public class GunScript : MonoBehaviour
         Vector2 firePos = firePoint.position;
 
         Vector2 dir = (targetPos - firePos).normalized;
+
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+
+        angle += 180f;
+
+        //Debug.Log($"angle = {angle}");
+
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
         GameObject bulletGO = Instantiate(bulletPrefab, firePos, Quaternion.identity);
         BulletScript bullet = bulletGO.GetComponent<BulletScript>();

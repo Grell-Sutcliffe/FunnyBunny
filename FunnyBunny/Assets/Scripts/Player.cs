@@ -38,8 +38,6 @@ public class Player : MonoBehaviour
     private bool isAlive = true;
     private bool isRunning = true;
 
-
-
     private void Start()
     {
         farmerController = farmer_GO.GetComponent<FarmerController>();
@@ -161,6 +159,8 @@ public class Player : MonoBehaviour
     public void Die()
     {
         if (!isAlive) return;
+
+        rb.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
 
         isAlive = false;
         animator.SetTrigger("Die"); 
