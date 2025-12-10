@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-using static UnityEditor.Progress;
+
 
 public class bla : MonoBehaviour, IPointerDownHandler
 {
