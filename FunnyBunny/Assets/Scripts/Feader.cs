@@ -21,7 +21,11 @@ public class Feader : Bebebe, Activities, IPointerDownHandler
         animator.SetTrigger("OPEN");
 
         mainController.DC.FeedDog();
-        Instantiate(mainController.RetPref(5), transform.position, Quaternion.identity);
+
+        Vector3 spawn_point = mainController.DC.transform.position;
+
+        //Instantiate(mainController.RetPref(5), transform.position, Quaternion.identity);
+        Instantiate(mainController.RetPref(5), spawn_point, Quaternion.identity);
 
 
     }
