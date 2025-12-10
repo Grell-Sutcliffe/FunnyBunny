@@ -8,6 +8,8 @@ TagManager:
   - Gun
   - PlayerCollider
   - Enemy
+  - Slider
+  - Toggle
   layers:
   - Default
   - TransparentFX
