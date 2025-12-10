@@ -6,7 +6,12 @@ public class asdasd : Bebebe, Activities, IPointerDownHandler
 {
     [SerializeField]
     float timer = 0.5f;
-
+    protected override void Start()
+    {
+        base.Start();
+        point = new Point(gameObject, timer);
+        
+    }
     public bool IsActive()
     {
         return false;
@@ -33,11 +38,7 @@ public class asdasd : Bebebe, Activities, IPointerDownHandler
         Debug.Log("MP");
 
     }
-    void Start()
-    {
-        point = new Point(gameObject, timer);
-        base.Start();
-    }
+    
     
   
 }
