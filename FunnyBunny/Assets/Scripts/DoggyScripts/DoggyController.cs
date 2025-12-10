@@ -3,6 +3,7 @@ using UnityEngine;
 public class DoggyController : MonoBehaviour
 {
     public GameObject dream_about_sausage_GO;
+    public GameObject key_GO;
     public GameObject noticableArea_GO;
 
     DoggyMovementScript doggyMovementScript;
@@ -17,6 +18,7 @@ public class DoggyController : MonoBehaviour
     public void FeedDog()
     {
         noticableArea_GO.SetActive(false);
+        key_GO.SetActive(false);
         doggyMovementScript.FeedDog();
     }
 }
