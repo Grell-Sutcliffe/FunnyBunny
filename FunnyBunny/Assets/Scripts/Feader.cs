@@ -20,7 +20,7 @@ public class Feader : Bebebe, Activities, IPointerDownHandler
         if (mainController.SosageAdded) return;
         animator.SetTrigger("OPEN");
 
-        // mainController.DC.FeedDog();
+        mainController.DC.FeedDog();
         Instantiate(mainController.RetPref(5), transform.position, Quaternion.identity);
 
 

@@ -4787,7 +4787,7 @@ MonoBehaviour:
   pause_sprite_resume: {fileID: 21300000, guid: bae180c6a9d0f8141a28a72a046115e0, type: 3}
   playerScript: {fileID: 285754713}
   FC: {fileID: 1381742871}
-  DC: {fileID: 0}
+  DC: {fileID: 762398602}
   prefPoper: {fileID: 4001086049107452588, guid: 45fc0a734d877a94c8dced674663467d, type: 3}
   inventory: {fileID: 1230697549}
   ListInventories: []
