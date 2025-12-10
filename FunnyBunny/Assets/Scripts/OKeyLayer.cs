@@ -25,9 +25,16 @@ public class OKeyLayer : Bebebe, Activities, IPointerDownHandler
     }
     public void Trigger()
     {
-        if (!mainController.KeyTaked){ 
+        
+        Debug.Log("KEYKEYKEY");
+        if (!mainController.KeyTaked){
+            if (mainController.KeyDowned == true)
+            {
+                return;
+            }
             GameObject ss = Instantiate(mainController.RetPref(2), transform.position, Quaternion.identity); // Jen
             mainController.KeyTaked = true;
+            mainController.KeyDowned = true;
         }
         else if (!mainController.WasAngry1) { 
             mainController.FC.ChangeAngerPercent(0.2f);

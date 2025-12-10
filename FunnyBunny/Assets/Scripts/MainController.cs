@@ -42,6 +42,7 @@ public class MainController : MonoBehaviour
 
     public bool is_dead = false;
 
+    public bool KeyDowned = false;
 
     public bool KeyTaked = false;
     public bool WasAngry1 = false;
