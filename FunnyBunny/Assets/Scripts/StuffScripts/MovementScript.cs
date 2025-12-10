@@ -16,6 +16,7 @@ public abstract class MovementScript : MonoBehaviour
 
     protected int current_point_index;
     protected bool need_to_move = true;
+    protected bool need_to_chase_bunny = true;
 
     protected bool is_chasing = false;
 
@@ -62,26 +63,15 @@ public abstract class MovementScript : MonoBehaviour
         }
     }
 
-    protected void Update()
-    {
-        if (need_to_move && is_chasing && player != null)
-        {
-            target = player_GO;
-
-            /*
-            Vector3 targetPos = player.position;
-
-            transform.position = Vector3.MoveTowards(
-                transform.position,
-                targetPos,
-                chase_speed * Time.deltaTime
-            );
-            */
-        }
-    }
-
     protected virtual void FixedUpdate()
     {
+        /*
+        if (need_to_chase_bunny && need_to_move && is_chasing && player != null)
+        {
+            target = player_GO;
+        }
+        */
+
         if (!need_to_move || target == null)
         {
             animator.SetBool(is_walking, false);
@@ -122,7 +112,7 @@ public abstract class MovementScript : MonoBehaviour
         return angle;
     }
 
-    protected void Flip()
+    protected virtual void Flip()
     {
         sprite.flipX = !sprite.flipX;
     }
@@ -134,10 +124,15 @@ public abstract class MovementScript : MonoBehaviour
             Debug.Log("OnTriggerEnter");
             is_chasing = true;
 
-            if (moveCoroutine != null)
+            if (need_to_chase_bunny)
             {
-                StopCoroutine(moveCoroutine);
-                moveCoroutine = null;
+                target = player_GO;
+
+                if (moveCoroutine != null)
+                {
+                    StopCoroutine(moveCoroutine);
+                    moveCoroutine = null;
+                }
             }
         }
     }

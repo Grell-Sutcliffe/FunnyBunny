@@ -2,15 +2,21 @@ using UnityEngine;
 
 public class DoggyController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public GameObject dream_about_sausage_GO;
+    public GameObject noticableArea_GO;
+
+    DoggyMovementScript doggyMovementScript;
+
+    // public bool is_hungry = true;  // is_happy = false;
+
     void Start()
     {
-        
+        doggyMovementScript = GetComponent<DoggyMovementScript>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void FeedDog()
     {
-        
+        noticableArea_GO.SetActive(false);
+        doggyMovementScript.FeedDog();
     }
 }

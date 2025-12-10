@@ -85,7 +85,7 @@ public class DoggyMovementScript : MovementScript
         {
             if (is_right)
             {
-                Flip();
+                this.Flip();
                 is_right = false;
             }
         }
@@ -93,68 +93,28 @@ public class DoggyMovementScript : MovementScript
         {
             if (!is_right)
             {
-                Flip();
+                this.Flip();
                 is_right = true;
             }
 
             angle = 360 - angle;
         }
-
-        if (angle < 22.5)
-        {
-            if (current_direction != is_B)
-            {
-                current_direction = is_B;
-                SetDirection(is_B);
-            }
-        }
-        else if (angle < 67.5)
-        {
-            if (current_direction != is_RB)
-            {
-                current_direction = is_RB;
-                SetDirection(is_RB);
-            }
-        }
-        else if (angle < 112.5)
-        {
-            if (current_direction != is_R)
-            {
-                current_direction = is_R;
-                SetDirection(is_R);
-            }
-        }
-        else if (angle < 157.5)
-        {
-            if (current_direction != is_RF)
-            {
-                current_direction = is_RF;
-                SetDirection(is_RF);
-            }
-        }
-        else
-        {
-            if (current_direction != is_F)
-            {
-                current_direction = is_F;
-                SetDirection(is_F);
-            }
-        }
     }
 
-    void SetDirection(string direction)
+    protected override void Flip()
     {
-        Debug.Log($"direction = {direction}");
-        SetAllDirectionsFalse();
-        animator.SetBool(direction, true);
+        var scale = root.transform.localScale;
+        scale.x *= -1;
+        root.transform.localScale = scale;
     }
 
-    void SetAllDirectionsFalse()
+
+    public void FeedDog()
     {
-        animator.SetBool(is_F, false);
-        animator.SetBool(is_RF, false);
-        animator.SetBool(is_R, false);
-        animator.SetBool(is_RB, false);
-        animator.SetBool(is_B, false);
+        need_to_chase_bunny = false;
+        SetAllAngerParametersFalse();
+
+        animator.SetBool(is_happy, true);
+        // animator.SetBool(is_sleeping, true);
     }
 }
