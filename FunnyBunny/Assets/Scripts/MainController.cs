@@ -63,7 +63,7 @@ public class MainController : MonoBehaviour
     }
     private void Awake() // ??
     {
-        Pause();
+        GoToMenu();
 
         if (Instance != null && Instance != this)
         {
@@ -75,7 +75,6 @@ public class MainController : MonoBehaviour
         DontDestroyOnLoad(gameObject); // ??
         //Debug.Log(FillInv[0]);
         ListInventories = new List<InventoryScript>(inventory.GetComponentsInChildren<InventoryScript>());
-        
     }
 
     public void ChickenCry()
@@ -116,6 +115,7 @@ public class MainController : MonoBehaviour
 
     public void GoToMenu()
     {
+        Pause();
         menuPanel.SetActive(true);
     }
 
