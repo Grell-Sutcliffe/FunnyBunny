@@ -7,6 +7,8 @@ public class Door : Bebebe, Activities, IPointerDownHandler
     float timer = 0.5f;
     [SerializeField]
     Animator anim;
+
+
     public bool IsActive()
     {
         return isActive;
@@ -15,15 +17,10 @@ public class Door : Bebebe, Activities, IPointerDownHandler
     protected override void OnActivate()
     {
         Debug.Log("DOOOR");
-        Collider collider = GetComponent<Collider>();
-
-        if (collider != null)
-        {
-            collider.enabled = false;
-            
-        }
+        
         anim.SetTrigger("Player");
         mainController.playerScript.animator.SetTrigger("Activity"); // override base
+        gameObject.layer = LayerMask.NameToLayer("NoColli");
     }
     public int GetKey()
     {

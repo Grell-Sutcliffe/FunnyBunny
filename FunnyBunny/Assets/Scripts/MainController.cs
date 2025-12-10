@@ -20,6 +20,9 @@ public class MainController : MonoBehaviour
     public Player playerScript;
     [SerializeField]
     public FarmerController FC;
+    [SerializeField]
+    public DoggyController DC;
+
     public GameObject prefPoper;
     public static MainController Instance { get; private set; }
     // [SerializeField] GameObject healthBar;
@@ -38,6 +41,12 @@ public class MainController : MonoBehaviour
 
     public bool is_dead = false;
 
+
+    public bool KeyTaked = false;
+    public bool WasAngry1 = false;
+
+    public bool Growed = false;
+    public bool SosageAdded = false;
     public void AddToInv(Item item)
     {   int value = item.id;
         ListInventories = new List<InventoryScript>(inventory.GetComponentsInChildren<InventoryScript>());
