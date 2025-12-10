@@ -9,6 +9,7 @@ public class MainController : MonoBehaviour
 {
     public GameObject chickens;
     public GameObject pausePanel;
+    public GameObject menuPanel;
     public Image pauseButtonImage;
 
     bool is_paused = false;
@@ -62,6 +63,8 @@ public class MainController : MonoBehaviour
     }
     private void Awake() // ??
     {
+        Pause();
+
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -111,6 +114,17 @@ public class MainController : MonoBehaviour
         }
     }
 
+    public void GoToMenu()
+    {
+        menuPanel.SetActive(true);
+    }
+
+    public void Play()
+    {
+        menuPanel.SetActive(false);
+        Resume();
+    }
+
     void Pause()
     {
         Time.timeScale = 0f;
@@ -134,4 +148,10 @@ public class MainController : MonoBehaviour
         if (pausePanel != null)
             pausePanel.SetActive(false);
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
 }

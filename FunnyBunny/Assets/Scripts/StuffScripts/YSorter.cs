@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 //[RequireComponent(typeof(Renderer))]
 [RequireComponent(typeof(SpriteRenderer))]
@@ -9,12 +10,25 @@ public class YSorter : MonoBehaviour
 
     //Renderer r;
     SpriteRenderer r;
+    SortingGroup sg;
 
     //void Awake() => r = GetComponent<Renderer>();
-    void Awake() => r = GetComponent<SpriteRenderer>();
+    void Awake()
+    {
+        r = GetComponent<SpriteRenderer>();
+        sg = GetComponent<SortingGroup>();
+    }
 
     void LateUpdate()
     {
-        r.sortingOrder = baseOrder - Mathf.RoundToInt(transform.position.y * mul);
+        if (sg != null)
+        {
+            int order = baseOrder - Mathf.RoundToInt(transform.position.y * mul);
+            sg.sortingOrder = order;
+        }
+        else
+        {
+            r.sortingOrder = baseOrder - Mathf.RoundToInt(transform.position.y * mul);
+        }
     }
 }

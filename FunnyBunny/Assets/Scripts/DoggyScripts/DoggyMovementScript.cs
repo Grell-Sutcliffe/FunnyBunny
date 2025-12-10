@@ -51,6 +51,7 @@ public class DoggyMovementScript : MovementScript
         if (other.CompareTag(player_tag))
         {
             StartAngerAnimation();
+            animator.SetBool(is_angry, false);
         }
     }
 
@@ -70,7 +71,7 @@ public class DoggyMovementScript : MovementScript
     public void SetAllAngerParametersFalse()
     {
         animator.SetBool(is_walking, true);
-        animator.SetBool(is_angry, false);
+        //animator.SetBool(is_angry, false);
         animator.SetBool(is_crying, false);
     }
 
