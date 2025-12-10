@@ -164,7 +164,7 @@ public abstract class MovementScript : MonoBehaviour
         {
             GameObject targetPoint = list_of_movement_points[current_point_index].GetPoint().point_GO;
             target = targetPoint;
-            Debug.Log("HELP");
+            //Debug.Log("HELP");
 
             while (Vector2.Distance(transform.position, targetPoint.transform.position) > stop_distance)
             {
