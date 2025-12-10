@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "\u0431\u043E\u0431\u0441\u0441\u043E\u0441\u0438\u0441\u043A\u043E\u0439"
       objectReference: {fileID: 0}
+    - target: {fileID: 1160356261127867848, guid: 663a893aae2b7e445ac0f480cffe471a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 04a00d4190d4aeb458f4af3f85ec3ffe, type: 2}
     - target: {fileID: 3626916397498700004, guid: 663a893aae2b7e445ac0f480cffe471a, type: 3}
       propertyPath: m_SortingLayer
       value: 2

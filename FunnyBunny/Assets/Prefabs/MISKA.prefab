@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MISKA
       objectReference: {fileID: 0}
+    - target: {fileID: 1160356261127867848, guid: d996d22dad5d21f44b3abefa293fba10, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 5f80b62d20e85da4780c6c7acea4f67f, type: 2}
     - target: {fileID: 3626916397498700004, guid: d996d22dad5d21f44b3abefa293fba10, type: 3}
       propertyPath: m_SortingLayer
       value: 2
